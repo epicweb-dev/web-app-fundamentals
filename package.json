@@ -1,0 +1,41 @@
+{
+  "name": "web-app-fundamentals",
+  "private": true,
+  "kcd-workshop": {
+    "title": "Web App Fundamentals 🔭",
+    "root": true
+  },
+  "scripts": {
+    "build": "npm run build --if-present --workspaces",
+    "start": "kcdshop start",
+    "dev": "kcdshop start",
+    "test": "node ./scripts/test.mjs",
+    "setup:custom": "npm run setup --if-present --workspaces",
+    "lint": "npm run lint --if-present --workspaces",
+    "format": "prettier --write .",
+    "typecheck": "tsc",
+    "validate": "npm-run-all --parallel --print-label --print-name --continue-on-error build test lint typecheck"
+  },
+  "keywords": [],
+  "author": "Kent C. Dodds <me@kentcdodds.com> (https://kentcdodds.com/)",
+  "license": "GPL-3.0-only",
+  "dependencies": {
+    "@kentcdodds/workshop-app": "^1.16.0"
+  },
+  "eslintIgnore": [
+    "/node_modules",
+    "/build",
+    "/public/build"
+  ],
+  "workspaces": [
+    "exercises/*/*",
+    "example/*"
+  ],
+  "engines": {
+    "node": "14 || 16 || 18 || 19",
+    "npm": ">=8.16.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
+  }
+}

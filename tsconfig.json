@@ -1,0 +1,11 @@
+{
+  "files": [],
+  "exclude": [
+    "node_modules"
+  ],
+  "references": [
+    {
+      "path": "exercises/09.finished/01.solution"
+    }
+  ]
+}
