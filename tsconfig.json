@@ -5,6 +5,36 @@
   ],
   "references": [
     {
+      "path": "exercises/05.error-handling/01-02.problem"
+    },
+    {
+      "path": "exercises/05.error-handling/01.solution.error-abstraction"
+    },
+    {
+      "path": "exercises/05.error-handling/02.solution.form-validation"
+    },
+    {
+      "path": "exercises/06.accessibility/01.solution.labels"
+    },
+    {
+      "path": "exercises/06.accessibility/02.solution.aria"
+    },
+    {
+      "path": "exercises/06.accessibility/03.solution.focus"
+    },
+    {
+      "path": "exercises/06.accessibility/04.solution.use-focus-invalid"
+    },
+    {
+      "path": "exercises/07.seo/01.problem"
+    },
+    {
+      "path": "exercises/07.seo/01.solution"
+    },
+    {
+      "path": "exercises/09.finished/01.problem"
+    },
+    {
       "path": "exercises/09.finished/01.solution"
     }
   ]

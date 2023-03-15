@@ -10,7 +10,7 @@
     "start": "kcdshop start",
     "dev": "kcdshop start",
     "test": "node ./scripts/test.mjs",
-    "setup:custom": "npm run setup --if-present --workspaces",
+    "setup:custom": "node ./scripts/setup-custom.mjs",
     "lint": "npm run lint --if-present --workspaces",
     "format": "prettier --write .",
     "typecheck": "tsc",
@@ -20,7 +20,9 @@
   "author": "Kent C. Dodds <me@kentcdodds.com> (https://kentcdodds.com/)",
   "license": "GPL-3.0-only",
   "dependencies": {
-    "@kentcdodds/workshop-app": "^1.16.0"
+    "@kentcdodds/workshop-app": "^1.17.1",
+    "@prisma/client": "npm:noist@^1.0.0",
+    "prisma": "npm:noist@^1.0.0"
   },
   "eslintIgnore": [
     "/node_modules",
@@ -36,6 +38,7 @@
     "npm": ">=8.16.0"
   },
   "devDependencies": {
-    "cross-env": "^7.0.3"
+    "cross-env": "^7.0.3",
+    "fs-extra": "^11.1.0"
   }
 }

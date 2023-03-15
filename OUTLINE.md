@@ -44,12 +44,13 @@
 - 💪 Exercise 7
 - 😴 10 Minutes
 
-1. Data loading and mutations
-2. Nested routing
-3. Styling
-4. Error Handling
-5. Accessibility
-6. SEO optimization
+1. Data loading
+2. Data mutations
+3. Nested routing
+4. Styling
+5. Error Handling
+6. Accessibility
+7. SEO optimization
 
 ## Scripts
 
