@@ -10,6 +10,7 @@
     "start": "kcdshop start",
     "dev": "kcdshop start",
     "test": "node ./scripts/test.mjs",
+    "setup": "node ./setup.mjs",
     "setup:custom": "node ./scripts/setup-custom.mjs",
     "lint": "npm run lint --if-present --workspaces",
     "format": "prettier --write .",
