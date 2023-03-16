@@ -9,31 +9,13 @@ This is just the finished version of the app. It's temporary...
     <li data-state="modified">
       <span>modified</span>
 
-      <InlineFile file="app/root.tsx" />
+      <InlineFile file="app/routes/settings+/profile.tsx" />
     </li>
 
     <li data-state="modified">
       <span>modified</span>
 
-      <InlineFile file="app/routes/users_+/$username.host.tsx" />
-    </li>
-
-    <li data-state="modified">
-      <span>modified</span>
-
-      <InlineFile file="app/routes/users_+/$username.index.tsx" />
-    </li>
-
-    <li data-state="modified">
-      <span>modified</span>
-
-      <InlineFile file="app/routes/users_+/$username.renter.tsx" />
-    </li>
-
-    <li data-state="modified">
-      <span>modified</span>
-
-      <InlineFile file="app/routes/users_+/$username.tsx" />
+      <InlineFile file="app/utils/forms.tsx" />
     </li>
 
   </ul>

@@ -9,7 +9,7 @@ This is just the finished version of the app. It's temporary...
     <li data-state="modified">
       <span>modified</span>
 
-      <InlineFile file="app/root.tsx" />
+      <InlineFile file="app/routes/settings+/profile.tsx" />
     </li>
 
     <li data-state="modified">
