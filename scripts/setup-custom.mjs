@@ -28,10 +28,11 @@ const problemApps = await getProblemApps()
 // have all the exercise apps share a single database and prisma has a
 // postinstall that sets up the client in each individual app anyway.
 const lastProblemApp = problemApps[problemApps.length - 1]
-console.log(`🛠️  Setting up ${lastProblemApp.dirName}...`)
+console.log(`🛠️  Setting up ${lastProblemApp.name}...`)
 const cp = spawn('npm', ['run', 'setup', '--silent'], {
 	cwd: lastProblemApp.fullPath,
 	stdio: 'inherit',
+	shell: true,
 })
 
 await new Promise(res => {

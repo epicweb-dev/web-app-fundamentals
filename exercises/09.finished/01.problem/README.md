@@ -6,3 +6,9 @@ This is just the finished version of the app. It's temporary...
 	<h2>Files</h2>
 	<p>No files changed</p>
 </section>
+
+<TouchedFiles>
+	<div id="files">
+		<p>No files changed</p>
+	</div>
+</TouchedFiles>

@@ -49,7 +49,7 @@ Follow these steps to get this set up:
 
 ```sh
 git clone https://github.com/epicweb-dev/web-app-fundamentals.git
-cd remix-workshop
+cd web-app-fundamentals
 npm run setup
 ```
 
