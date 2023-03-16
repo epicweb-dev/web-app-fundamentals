@@ -5,13 +5,22 @@
   ],
   "references": [
     {
-      "path": "exercises/05.error-handling/01-02.problem"
+      "path": "exercises/05.error-handling/01-04.problem"
     },
     {
-      "path": "exercises/05.error-handling/01.solution.error-abstraction"
+      "path": "exercises/05.error-handling/01.solution.route-errors"
     },
     {
-      "path": "exercises/05.error-handling/02.solution.form-validation"
+      "path": "exercises/05.error-handling/02.solution.error-responses"
+    },
+    {
+      "path": "exercises/05.error-handling/03.solution.error-abstraction"
+    },
+    {
+      "path": "exercises/05.error-handling/04.solution.form-validation"
+    },
+    {
+      "path": "exercises/06.accessibility/01-04.problem"
     },
     {
       "path": "exercises/06.accessibility/01.solution.labels"

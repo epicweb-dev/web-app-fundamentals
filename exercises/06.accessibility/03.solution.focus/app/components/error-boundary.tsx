@@ -27,10 +27,7 @@ export function GeneralErrorBoundary({
 }) {
 	const error = useRouteError()
 	const params = useParams()
-
-	if (typeof document !== 'undefined') {
-		console.error(error)
-	}
+	console.error(error)
 
 	return (
 		<div className="container mx-auto flex items-center justify-center p-20 text-h2 text-accent-red">
