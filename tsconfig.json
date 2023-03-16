@@ -5,22 +5,43 @@
   ],
   "references": [
     {
-      "path": "exercises/04.styling/01-05.problem"
+      "path": "examples/finished-app"
     },
     {
-      "path": "exercises/04.styling/01.solution.public-links"
+      "path": "examples/finished-app"
     },
     {
-      "path": "exercises/04.styling/02.solution.global-links"
+      "path": "exercises/01.styling/01-05.problem"
     },
     {
-      "path": "exercises/04.styling/03.solution.route-links"
+      "path": "exercises/01.styling/01.solution.public-links"
     },
     {
-      "path": "exercises/04.styling/04.solution.tailwind"
+      "path": "exercises/01.styling/02.solution.global-links"
     },
     {
-      "path": "exercises/04.styling/05.solution.css-bundle"
+      "path": "exercises/01.styling/03.solution.route-links"
+    },
+    {
+      "path": "exercises/01.styling/04.solution.tailwind"
+    },
+    {
+      "path": "exercises/01.styling/05.solution.css-bundle"
+    },
+    {
+      "path": "exercises/04.mutations/01-04.problem"
+    },
+    {
+      "path": "exercises/04.mutations/01.solution.forms"
+    },
+    {
+      "path": "exercises/04.mutations/02.solution.fields"
+    },
+    {
+      "path": "exercises/04.mutations/03.solution.typescript"
+    },
+    {
+      "path": "exercises/04.mutations/04.solution.pending"
     },
     {
       "path": "exercises/05.error-handling/01-04.problem"
@@ -57,12 +78,6 @@
     },
     {
       "path": "exercises/07.seo/01.solution"
-    },
-    {
-      "path": "exercises/09.finished/01.problem"
-    },
-    {
-      "path": "exercises/09.finished/01.solution"
     }
   ]
 }
