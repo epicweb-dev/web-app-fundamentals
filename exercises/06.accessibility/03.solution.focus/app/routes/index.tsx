@@ -1,11 +1,15 @@
 import * as Tabs from '@radix-ui/react-tabs'
-import { type V2_MetaFunction } from '@remix-run/node'
+import { type LinksFunction, type V2_MetaFunction } from '@remix-run/node'
 import { Form, Link } from '@remix-run/react'
 import clsx from 'clsx'
 import { useRef, useState } from 'react'
 import { Spacer } from '~/components/spacer'
 import { ButtonLink } from '~/utils/forms'
-import styles from './index.module.css'
+import indexStylesheetUrl from './index.css'
+
+export const links: LinksFunction = () => [
+	{ rel: 'stylesheet', href: indexStylesheetUrl },
+]
 
 export const meta: V2_MetaFunction = ({ matches }) => {
 	return matches.find(match => match.route.id === 'root')?.meta ?? []
@@ -226,43 +230,19 @@ export default function Index() {
 					<Spacer size="sm" />
 					<div className="flex items-center justify-center rounded-3xl bg-night-500 py-16">
 						<div className="flex flex-1 flex-col items-center justify-center gap-1">
-							<div
-								className={clsx(
-									'text-mega',
-									styles.statsNumber,
-									styles.statsDistance,
-								)}
-							>
-								876
-							</div>
+							<div className="statsNumber statsDistance text-mega">876</div>
 							<div className="text-center text-night-200">
 								light years flown
 							</div>
 						</div>
 						<div className="flex flex-1 flex-col items-center justify-center gap-1 border-l-2 border-l-gray-500">
-							<div
-								className={clsx(
-									'text-mega',
-									styles.statsNumber,
-									styles.statsHosts,
-								)}
-							>
-								2.5K
-							</div>
+							<div className="statsNumber statsHosts text-mega">2.5K</div>
 							<div className="text-center text-night-200">
 								hosts on our platform
 							</div>
 						</div>
 						<div className="flex flex-1 flex-col items-center justify-center gap-1 border-l-2 border-l-gray-500">
-							<div
-								className={clsx(
-									'text-mega',
-									styles.statsNumber,
-									styles.statsRockets,
-								)}
-							>
-								16K
-							</div>
+							<div className="statsNumber statsRockets text-mega">16K</div>
 							<div className="text-center text-night-200">
 								rockets available for rent
 							</div>

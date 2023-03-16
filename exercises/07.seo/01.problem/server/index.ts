@@ -21,7 +21,7 @@ app.use(
 
 // Everything else (like favicon.ico) is cached for an hour. You may want to be
 // more aggressive with this caching.
-app.use(express.static('public', { maxAge: '1h' }))
+{ maxAge: process.env.NODE_ENV === 'production' ? '1h' : 0 },
 
 app.use(morgan('tiny'))
 

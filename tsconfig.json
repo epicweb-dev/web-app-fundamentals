@@ -5,6 +5,24 @@
   ],
   "references": [
     {
+      "path": "exercises/04.styling/01-05.problem"
+    },
+    {
+      "path": "exercises/04.styling/01.solution.public-links"
+    },
+    {
+      "path": "exercises/04.styling/02.solution.global-links"
+    },
+    {
+      "path": "exercises/04.styling/03.solution.route-links"
+    },
+    {
+      "path": "exercises/04.styling/04.solution.tailwind"
+    },
+    {
+      "path": "exercises/04.styling/05.solution.css-bundle"
+    },
+    {
       "path": "exercises/05.error-handling/01-04.problem"
     },
     {

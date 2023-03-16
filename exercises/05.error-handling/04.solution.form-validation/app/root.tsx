@@ -1,4 +1,4 @@
-import * as Checkbox from '@radix-ui/react-checkbox'
+import { KCDShopIFrameSync } from '@kentcdodds/workshop-app/iframe-sync'
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import { cssBundleHref } from '@remix-run/css-bundle'
 import {
@@ -15,14 +15,10 @@ import {
 	Outlet,
 	Scripts,
 	ScrollRestoration,
-	useFetcher,
 	useLoaderData,
 	useSubmit,
 } from '@remix-run/react'
-import clsx from 'clsx'
 import { useId, useState } from 'react'
-import { KCDShopIFrameSync } from '@kentcdodds/workshop-app/iframe-sync'
-import rootStylesheetUrl from './root.css'
 import appStylesheetUrl from './styles/app.css'
 import tailwindStylesheetUrl from './styles/tailwind.css'
 import { authenticator } from './utils/auth.server'
@@ -38,7 +34,6 @@ export const links: LinksFunction = () => {
 		{ rel: 'stylesheet', href: tailwindStylesheetUrl },
 		cssBundleHref ? { rel: 'stylesheet', href: cssBundleHref } : null,
 		{ rel: 'stylesheet', href: appStylesheetUrl },
-		{ rel: 'stylesheet', href: rootStylesheetUrl },
 	].filter(typedBoolean)
 }
 
@@ -65,7 +60,7 @@ export default function App() {
 	const data = useLoaderData<typeof loader>()
 	const { user } = data
 	return (
-		<html lang="en" className="dark h-full">
+		<html lang="en" className="h-full">
 			<head>
 				<Meta />
 				<Links />
@@ -94,12 +89,11 @@ export default function App() {
 					<Outlet />
 				</div>
 
-				<div className="container mx-auto flex justify-between">
+				<div className="container mx-auto">
 					<Link to="/">
 						<div className="font-light">rocket</div>
 						<div className="font-bold">Rental</div>
 					</Link>
-					<ThemeSwitch />
 				</div>
 				<div className="h-5" />
 				<ScrollRestoration />
@@ -129,75 +123,6 @@ function NoHydrate({
 		return el.innerHTML
 	})
 	return <div {...rest} id={id} dangerouslySetInnerHTML={{ __html: html }} />
-}
-
-function ThemeSwitch() {
-	const fetcher = useFetcher()
-	const [mode, setMode] = useState<'system' | 'dark' | 'light'>('system')
-	const checked: boolean | 'indeterminate' =
-		mode === 'system' ? 'indeterminate' : mode === 'dark'
-	const theme = mode === 'system' ? 'dark' : mode
-	return (
-		<fetcher.Form>
-			<label>
-				<Checkbox.Root
-					className={clsx('bg-gray-night-500 h-10 w-20 rounded-full p-1', {
-						'bg-night-500': theme === 'dark',
-						'bg-white': theme === 'light',
-					})}
-					checked={checked}
-					name="theme"
-					value={mode}
-					onCheckedChange={() =>
-						setMode(oldMode =>
-							oldMode === 'system'
-								? 'light'
-								: oldMode === 'light'
-								? 'dark'
-								: 'system',
-						)
-					}
-					aria-label={
-						mode === 'system'
-							? 'System Theme'
-							: mode === 'dark'
-							? 'Dark Theme'
-							: 'Light Theme'
-					}
-				>
-					<span
-						className={clsx('flex justify-between rounded-full', {
-							'bg-white': mode === 'system' && theme === 'dark',
-							'theme-switch-light': mode === 'system' && theme === 'light',
-						})}
-					>
-						<span
-							className={clsx(
-								'theme-switch-light',
-								'flex h-8 w-8 items-center justify-center rounded-full',
-								{
-									'text-white': mode === 'light',
-								},
-							)}
-						>
-							🔆
-						</span>
-						<span
-							className={clsx(
-								'theme-switch-dark',
-								'flex h-8 w-8 items-center justify-center rounded-full',
-								{
-									'text-white': mode === 'dark',
-								},
-							)}
-						>
-							🌙
-						</span>
-					</span>
-				</Checkbox.Root>
-			</label>
-		</fetcher.Form>
-	)
 }
 
 function UserDropdown() {
