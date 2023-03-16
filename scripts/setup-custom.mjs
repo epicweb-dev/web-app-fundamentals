@@ -9,6 +9,9 @@ import {
 	getExampleApps,
 } from '@kentcdodds/workshop-app/build/utils/apps.server.js'
 
+// getApps expects this env var
+process.env.NODE_ENV = 'development'
+
 const appPaths = new Set((await getApps()).map(a => a.fullPath))
 
 console.log('📝  copying .env.example to .env files...')
