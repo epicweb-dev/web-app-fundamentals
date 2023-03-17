@@ -856,7 +856,7 @@ function Testimonials() {
 				"I love the fact that I can rent out my ship when I'm not using it. It's a great way to make some extra money.",
 			host: {
 				imageSrc: 'https://randomuser.me/api/portraits/men/16.jpg',
-				name: 'Bobbo the Clown',
+				name: 'Samuel Rocks',
 				subtitle: 'Asteroid 1000',
 			},
 		},

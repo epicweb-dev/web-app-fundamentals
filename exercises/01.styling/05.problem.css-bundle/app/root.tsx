@@ -1,4 +1,5 @@
 import { KCDShopIFrameSync } from '@kentcdodds/workshop-app/iframe-sync'
+// 🐨 bring in the { cssBundleHref } from @remix-run/css-bundle
 import { type LinksFunction } from '@remix-run/node'
 import {
 	Link,
@@ -20,7 +21,11 @@ export const links: LinksFunction = () => {
 		{ rel: 'stylesheet', href: '/fonts/nunito-sans/font.css' },
 		{ rel: 'stylesheet', href: tailwindStylesheetUrl },
 		{ rel: 'stylesheet', href: appStylesheetUrl },
+		// 🐨 Add a link to cssBundleHref here
+		// 🦺 cssBundleHref could possibly be undefined, so you'll want to handle that
 	]
+	// 💰 I used .filter on the array to remove undefined values, but TypeScript
+	// isn't satisfied with that, so checkout the typedBoolean utility in ./utils/misc.ts
 }
 
 export default function App() {

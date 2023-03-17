@@ -11,6 +11,7 @@ import {
 } from '@remix-run/react'
 import { useId, useState } from 'react'
 import appStylesheetUrl from './styles/app.css'
+// 🐨 import the ./styles/tailwind.css file here to get the tailwindStylesheetUrl
 import { ButtonLink } from './utils/forms'
 import { generateStarsSvg } from './utils/starfield.server'
 
@@ -18,6 +19,7 @@ export const links: LinksFunction = () => {
 	return [
 		{ rel: 'stylesheet', href: '/fonts/nunito-sans/font.css' },
 		{ rel: 'stylesheet', href: appStylesheetUrl },
+		// 🐨 Add a link to the tailwindStylesheetUrl here
 	]
 }
 

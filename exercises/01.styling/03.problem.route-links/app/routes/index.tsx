@@ -4,6 +4,10 @@ import clsx from 'clsx'
 import { useRef, useState } from 'react'
 import { Spacer } from '~/components/spacer'
 import { ButtonLink } from '~/utils/forms'
+// 🐨 import the ./index.css file to get the indexStylesheetUrl
+
+// 🐨 export a links function and add a link to the indexStylesheetUrl here
+// 🦺 Don't forget the LinksFunction type!
 
 export default function Index() {
 	return (
@@ -856,7 +860,7 @@ function Testimonials() {
 				"I love the fact that I can rent out my ship when I'm not using it. It's a great way to make some extra money.",
 			host: {
 				imageSrc: 'https://randomuser.me/api/portraits/men/16.jpg',
-				name: 'Bobbo the Clown',
+				name: 'Samuel Rocks',
 				subtitle: 'Asteroid 1000',
 			},
 		},
