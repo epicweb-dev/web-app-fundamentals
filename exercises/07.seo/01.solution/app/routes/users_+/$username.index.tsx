@@ -4,11 +4,12 @@ import {
 	json,
 	redirect,
 } from '@remix-run/node'
-import { Link, useLoaderData } from '@remix-run/react'
+import { Form, Link, useLoaderData } from '@remix-run/react'
 import invariant from 'tiny-invariant'
 import { GeneralErrorBoundary } from '~/components/error-boundary'
 import { Spacer } from '~/components/spacer'
 import { prisma } from '~/utils/db.server'
+import { Button } from '~/utils/forms'
 import { getUserImgSrc, useOptionalUser } from '~/utils/misc'
 
 export async function loader({ params }: DataFunctionArgs) {
@@ -53,12 +54,20 @@ export default function UsernameIndex() {
 			<p className="text-night-200">Joined {data.userJoinedDisplay}</p>
 			<Spacer size="4xs" />
 			{isLoggedInUser ? (
-				<Link
-					to="/settings/profile"
-					className="rounded-full border border-night-400 py-5 px-10"
-				>
-					✏️ Create your profile
-				</Link>
+				<>
+					<Link
+						to="/settings/profile"
+						className="rounded-full border border-night-400 py-5 px-10"
+					>
+						✏️ Create your profile
+					</Link>
+					<Spacer size="4xs" />
+					<Form action="/logout" method="post">
+						<Button type="submit" size="pill" variant="secondary">
+							Logout
+						</Button>
+					</Form>
+				</>
 			) : (
 				<p className="text-body-2xs text-night-200">
 					This user does not have a renter or host profile yet.

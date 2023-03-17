@@ -1,0 +1,298 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model File {
+  id   String @id @unique @default(uuid())
+  blob Bytes
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  image     Image?
+}
+
+model Image {
+  file   File   @relation(fields: [fileId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  fileId String @unique
+
+  contentType String
+  altText     String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user      User?
+  shipBrand ShipBrand?
+  shipModel ShipModel?
+  ship      Ship?
+  starport  Starport?
+}
+
+model User {
+  id       String  @id @unique @default(cuid())
+  email    String  @unique
+  username String  @unique
+  name     String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  image   Image?  @relation(fields: [imageId], references: [fileId])
+  imageId String? @unique
+
+  password    Password?
+  contactInfo ContactInfo?
+  host        Host?
+  renter      Renter?
+  admin       Admin?
+  chats       Chat[]
+  messages    Message[]
+}
+
+model Password {
+  hash String
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  userId String @unique
+}
+
+model ContactInfo {
+  id      String  @id @unique @default(cuid())
+  phone   String?
+  address String?
+  city    String?
+  state   String?
+  zip     String?
+  country String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  userId String @unique
+}
+
+model Host {
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  userId String @unique
+
+  bio String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  ships         Ship[]
+  reviews       HostReview[]
+  renterReviews RenterReview[]
+}
+
+model Renter {
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  userId String @unique
+
+  bio String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  bookings    Booking[]
+  shipReviews ShipReview[]
+  hostReviews HostReview[]
+  reviews     RenterReview[]
+}
+
+model Admin {
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  userId String @unique
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ShipBrand {
+  id          String @id @unique @default(cuid())
+  name        String
+  description String
+
+  image   Image  @relation(fields: [imageId], references: [fileId])
+  imageId String @unique
+
+  shipModels ShipModel[]
+}
+
+model ShipModel {
+  id          String @id @unique @default(cuid())
+  name        String
+  description String
+
+  image   Image  @relation(fields: [imageId], references: [fileId])
+  imageId String @unique
+
+  brand   ShipBrand @relation(fields: [brandId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  brandId String
+
+  ships Ship[]
+}
+
+model Ship {
+  id          String @id @unique @default(cuid())
+  name        String
+  capacity    Int
+  description String
+
+  image   Image?  @relation(fields: [imageId], references: [fileId])
+  imageId String? @unique
+
+  dailyCharge Int
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  model   ShipModel @relation(fields: [modelId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  modelId String
+
+  host   Host   @relation(fields: [hostId], references: [userId], onDelete: Cascade, onUpdate: Cascade)
+  hostId String
+
+  starport   Starport @relation(fields: [starportId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  starportId String
+
+  bookings Booking[]
+  reviews  ShipReview[]
+}
+
+model Starport {
+  id          String @id @unique @default(cuid())
+  name        String
+  description String
+
+  image   Image  @relation(fields: [imageId], references: [fileId])
+  imageId String @unique
+
+  latitude  Float
+  longitude Float
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  ships Ship[]
+}
+
+model City {
+  id        String @id @unique @default(cuid())
+  name      String
+  country   String
+  latitude  Float
+  longitude Float
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Booking {
+  id         String   @id @unique @default(cuid())
+  startDate  DateTime
+  endDate    DateTime
+  totalPrice Int
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  renter   Renter @relation(fields: [renterId], references: [userId], onDelete: Cascade, onUpdate: Cascade)
+  renterId String
+
+  ship   Ship   @relation(fields: [shipId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  shipId String
+
+  shipReview   ShipReview?
+  hostReview   HostReview?
+  renterReview RenterReview?
+}
+
+/// Review of a ship by the renter
+model ShipReview {
+  id      String @id @unique @default(cuid())
+  rating  Int
+  content String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  /// the ship that was reviewed
+  subject   Ship   @relation(fields: [subjectId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  subjectId String
+
+  /// the renter who reviewed the ship
+  reviewer   Renter  @relation(fields: [reviewerId], references: [userId], onDelete: Cascade, onUpdate: Cascade)
+  reviewerId String
+  booking    Booking @relation(fields: [bookingId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  bookingId  String  @unique
+}
+
+/// Review of a host by the renter
+model HostReview {
+  id      String @id @unique @default(cuid())
+  rating  Int
+  content String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  /// the host that was reviewed
+  subject   Host   @relation(fields: [subjectId], references: [userId], onDelete: Cascade, onUpdate: Cascade)
+  subjectId String
+
+  /// the renter who reviewed the host
+  reviewer   Renter  @relation(fields: [reviewerId], references: [userId], onDelete: Cascade, onUpdate: Cascade)
+  reviewerId String
+  booking    Booking @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  bookingId  String  @unique
+}
+
+/// Review of the renter by the host
+model RenterReview {
+  id      String @id @unique @default(cuid())
+  rating  Int
+  content String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  /// the renter that was reviewed
+  subject   Renter @relation(fields: [subjectId], references: [userId], onDelete: Cascade, onUpdate: Cascade)
+  subjectId String
+
+  /// the host who reviewed the renter
+  reviewer   Host    @relation(fields: [reviewerId], references: [userId], onDelete: Cascade, onUpdate: Cascade)
+  reviewerId String
+  booking    Booking @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  bookingId  String  @unique
+}
+
+model Chat {
+  id String @id @unique @default(cuid())
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  users    User[]
+  messages Message[]
+}
+
+model Message {
+  id        String   @id @unique @default(cuid())
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  chat   Chat   @relation(fields: [chatId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  chatId String
+
+  sender   User   @relation(fields: [senderId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  senderId String
+}

@@ -29,6 +29,18 @@
       "path": "exercises/01.styling/05.solution.css-bundle"
     },
     {
+      "path": "exercises/03.loading/01.problem.loaders"
+    },
+    {
+      "path": "exercises/03.loading/01.solution.loaders"
+    },
+    {
+      "path": "exercises/03.loading/02.problem.missing-data"
+    },
+    {
+      "path": "exercises/03.loading/02.solution.missing-data"
+    },
+    {
       "path": "exercises/04.mutations/01-04.problem"
     },
     {

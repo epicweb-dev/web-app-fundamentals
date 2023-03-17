@@ -22,10 +22,7 @@ export async function loader({ request, params }: DataFunctionArgs) {
 		throw new Response('not found', { status: 404 })
 	}
 
-	return json({
-		displayName: user.name ?? user.username,
-		isSelf: user.id === loggedInUserId,
-	})
+	return json({ isSelf: loggedInUserId === user.id })
 }
 
 export default function UserRoute() {

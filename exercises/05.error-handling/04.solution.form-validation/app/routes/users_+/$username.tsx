@@ -24,7 +24,6 @@ export async function loader({ request, params }: DataFunctionArgs) {
 	}
 
 	return json({
-		displayName: user.name ?? user.username,
 		isSelf: user.id === loggedInUserId,
 	})
 }
