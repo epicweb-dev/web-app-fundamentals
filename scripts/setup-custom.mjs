@@ -51,13 +51,13 @@ const cp = spawn('npm', ['run', 'setup', '--silent'], {
 	shell: true,
 })
 
-await new Promise(res => {
+const code = await new Promise(res => {
 	cp.on('exit', code => {
-		if (code === 0) {
-		} else {
-			console.error(`❌  Seeding db failed`)
-			process.exit(1)
-		}
-		res()
+		res(code)
 	})
 })
+
+if (code !== 0) {
+	console.error(`❌  Setting up ${lastProblemApp.name} failed`)
+	process.exit(code)
+}
