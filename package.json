@@ -36,7 +36,7 @@
     "examples/*"
   ],
   "engines": {
-    "node": "14 || 16 || 18 || 19",
+    "node": "18 || 19",
     "npm": ">=8.16.0"
   },
   "devDependencies": {
