@@ -5,19 +5,31 @@
   ],
   "references": [
     {
-      "path": "exercises/01.styling/01-05.problem"
+      "path": "exercises/01.styling/01.problem.public-links"
     },
     {
       "path": "exercises/01.styling/01.solution.public-links"
     },
     {
+      "path": "exercises/01.styling/02.problem.global-links"
+    },
+    {
       "path": "exercises/01.styling/02.solution.global-links"
+    },
+    {
+      "path": "exercises/01.styling/03.problem.route-links"
     },
     {
       "path": "exercises/01.styling/03.solution.route-links"
     },
     {
+      "path": "exercises/01.styling/04.problem.tailwind"
+    },
+    {
       "path": "exercises/01.styling/04.solution.tailwind"
+    },
+    {
+      "path": "exercises/01.styling/05.problem.css-bundle"
     },
     {
       "path": "exercises/01.styling/05.solution.css-bundle"

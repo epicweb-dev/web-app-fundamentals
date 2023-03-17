@@ -1,26 +1,5 @@
 # Accessibility
 
-This is just the finished version of the app. It's temporary...
-
-<section id="files" className="not-prose">
-  <h2>Files</h2>
-
-  <ul>
-    <li data-state="modified">
-      <span>modified</span>
-
-      <InlineFile file="app/routes/settings+/profile.tsx" />
-    </li>
-
-    <li data-state="modified">
-      <span>modified</span>
-
-      <InlineFile file="app/utils/forms.tsx" />
-    </li>
-
-  </ul>
-</section>
-
 <TouchedFiles>
   <div id="files">
     <ul>
