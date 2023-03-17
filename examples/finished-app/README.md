@@ -1,3 +1,0 @@
-# Finished
-
-This is just the finished version of the app. It's temporary...

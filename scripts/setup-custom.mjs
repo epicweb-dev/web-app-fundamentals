@@ -6,7 +6,6 @@ import {
 	getApps,
 	getProblemApps,
 	getSolutionApps,
-	getExampleApps,
 } from '@kentcdodds/workshop-app/build/utils/apps.server.js'
 
 // getApps expects this env var
@@ -62,26 +61,3 @@ await new Promise(res => {
 		res()
 	})
 })
-
-const exampleApps = await getExampleApps()
-if (exampleApps.length) {
-	console.log('Setting up example apps...')
-}
-
-for (const exampleApp of exampleApps) {
-	const cp = spawn('npm', ['run', 'setup', '--if-present', '--silent'], {
-		cwd: exampleApp.fullPath,
-		stdio: 'inherit',
-	})
-
-	await new Promise(res => {
-		cp.on('exit', code => {
-			if (code === 0) {
-			} else {
-				console.error(`❌  setup script failed for ${exampleApp.dirName}`)
-				process.exit(1)
-			}
-			res()
-		})
-	})
-}
