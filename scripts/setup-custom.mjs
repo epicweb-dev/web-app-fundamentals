@@ -14,12 +14,29 @@ process.env.NODE_ENV = 'development'
 
 const appPaths = new Set((await getApps()).map(a => a.fullPath))
 
-console.log('📝  copying .env.example to .env files...')
+console.log(
+	'📝  copying .env.example to .env files and generating prisma client...',
+)
 for (const appPath of appPaths) {
 	await fs.promises.copyFile(
 		path.join(appPath, '.env.example'),
 		path.join(appPath, '.env'),
 	)
+	const cp = spawn('npx', ['prisma', 'generate'], {
+		cwd: appPath,
+		stdio: 'inherit',
+		shell: true,
+	})
+	await new Promise(res => {
+		cp.on('exit', code => {
+			if (code === 0) {
+			} else {
+				console.error(`❌  generating the prisma client failed in ${appPath}`)
+				process.exit(1)
+			}
+			res()
+		})
+	})
 }
 
 const problemApps = await getProblemApps()

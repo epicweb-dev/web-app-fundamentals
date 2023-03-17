@@ -22,7 +22,7 @@
   "author": "Kent C. Dodds <me@kentcdodds.com> (https://kentcdodds.com/)",
   "license": "GPL-3.0-only",
   "dependencies": {
-    "@kentcdodds/workshop-app": "^1.18.0",
+    "@kentcdodds/workshop-app": "^1.18.3",
     "@prisma/client": "npm:noist@^1.0.0",
     "prisma": "npm:noist@^1.0.0"
   },
@@ -33,7 +33,7 @@
   ],
   "workspaces": [
     "exercises/*/*",
-    "example/*"
+    "examples/*"
   ],
   "engines": {
     "node": "14 || 16 || 18 || 19",
