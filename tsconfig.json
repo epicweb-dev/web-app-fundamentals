@@ -5,12 +5,6 @@
   ],
   "references": [
     {
-      "path": "examples/finished-app"
-    },
-    {
-      "path": "examples/finished-app"
-    },
-    {
       "path": "exercises/01.styling/01-05.problem"
     },
     {
@@ -27,6 +21,12 @@
     },
     {
       "path": "exercises/01.styling/05.solution.css-bundle"
+    },
+    {
+      "path": "exercises/02.routing/01.problem"
+    },
+    {
+      "path": "exercises/02.routing/01.solution"
     },
     {
       "path": "exercises/03.loading/01.problem.loaders"

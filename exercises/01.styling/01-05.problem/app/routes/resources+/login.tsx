@@ -1,19 +1,12 @@
-import { json, redirect, type DataFunctionArgs } from '@remix-run/node'
 import { Link, useFetcher } from '@remix-run/react'
-import { AuthorizationError } from 'remix-auth'
-import { FormStrategy } from 'remix-auth-form'
 import { z } from 'zod'
-import { authenticator } from '~/utils/auth.server'
 import {
 	Button,
 	CheckboxField,
 	Field,
 	getFieldsFromSchema,
-	preprocessFormData,
 	useForm,
 } from '~/utils/forms'
-import { safeRedirect } from '~/utils/misc'
-import { commitSession, getSession } from '~/utils/session.server'
 import { passwordSchema, usernameSchema } from '~/utils/user-validation'
 
 export const LoginFormSchema = z.object({
@@ -23,56 +16,6 @@ export const LoginFormSchema = z.object({
 	remember: z.boolean(),
 })
 
-export async function action({ request }: DataFunctionArgs) {
-	const formData = await request.clone().formData()
-	const result = LoginFormSchema.safeParse(
-		preprocessFormData(formData, LoginFormSchema),
-	)
-	if (!result.success) {
-		return json({ status: 'error', errors: result.error.flatten() } as const, {
-			status: 400,
-		})
-	}
-
-	let userId: string | null = null
-	try {
-		userId = await authenticator.authenticate(FormStrategy.name, request, {
-			throwOnError: true,
-		})
-	} catch (error) {
-		if (error instanceof AuthorizationError) {
-			return json(
-				{
-					status: 'error',
-					errors: {
-						formErrors: [error.message],
-						fieldErrors: {},
-					},
-				} as const,
-				{ status: 400 },
-			)
-		}
-		throw error
-	}
-
-	const session = await getSession(request.headers.get('cookie'))
-	session.set(authenticator.sessionKey, userId)
-	const { remember, redirectTo } = result.data
-	const newCookie = await commitSession(session, {
-		maxAge: remember
-			? 60 * 60 * 24 * 7 // 7 days
-			: undefined,
-	})
-	if (redirectTo) {
-		throw redirect(safeRedirect(redirectTo), {
-			headers: { 'Set-Cookie': newCookie },
-		})
-	}
-	return json({ status: 'success', errors: null } as const, {
-		headers: { 'Set-Cookie': newCookie },
-	})
-}
-
 export function InlineLogin({
 	redirectTo,
 	formError,
@@ -80,7 +23,7 @@ export function InlineLogin({
 	redirectTo?: string
 	formError?: string | null
 }) {
-	const loginFetcher = useFetcher<typeof action>()
+	const loginFetcher = useFetcher()
 
 	const { form, fields } = useForm({
 		name: 'inline-login',
