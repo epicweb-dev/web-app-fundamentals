@@ -1,7 +1,6 @@
 import fsExtra from 'fs-extra'
 import path from 'path'
 import glob from 'glob'
-import pkg from '../package.json'
 
 const here = (...s: Array<string>) => path.join(__dirname, ...s)
 
@@ -28,7 +27,7 @@ require('esbuild')
 	.build({
 		entryPoints: glob.sync(here('../server/**/*.+(ts|js|tsx|jsx)')),
 		outdir: here('../server-build'),
-		target: [`node${pkg.engines.node}`],
+		target: [`node18`],
 		platform: 'node',
 		format: 'cjs',
 		logLevel: 'info',
