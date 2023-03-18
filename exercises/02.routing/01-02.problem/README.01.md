@@ -37,6 +37,12 @@ start that component out by returning a with a title like this:
 
 Once you've got that, open <LinkToApp to="/users/kody">/users/kody</LinkToApp>.
 
+"Kody" should be displayed on the page. One fun fact, you'll also notice the
+star field and Rocket Rental logo are on the page as well, even though you
+didn't render those yourself. That's because you're actually already using
+nested routing! The route you just created is nested inside
+<InlineFile file="app/root.tsx" line="89" />!
+
 <TouchedFiles>
   <div id="files">
     <ul>
