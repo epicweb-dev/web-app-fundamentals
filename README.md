@@ -85,7 +85,26 @@ The test script in the `package.json` runs the tests on the solutions (these
 should all pass). To run the tests against your own work, you simply open the
 problem page and click the "Test" tab.
 
-### Exercises
+## Launching your editor
+
+The application has several buttons which will launch your editor to the right
+file. There are a lot of files in this workshop so you'll be using this feature
+a lot to get to the right place at the right time.
+
+This should just work™️, but if it doesn't it could be that our editor guessing
+isn't working for you. If that's the case, create a `.env` file in the root of
+this project and add an environment variable called `KCDSHOP_EDITOR` with the
+value being set to the path to your editor's executable. For example, if you're
+using VS Code on Windows, you'd add this to your `.env` file:
+
+```
+KCDSHOP_EDITOR="C:\Program Files\Microsoft VS Code\bin\code.cmd"
+```
+
+Make certain that if the path includes spaces that you wrap the path in quotes
+as above.
+
+## Exercises
 
 - `exercises/*.*/README.md`: Exercise background information
 - `exercises/*.*/*.problem.*/README.*.md`: Problem Instructions
@@ -97,7 +116,7 @@ The purpose of the exercise is **not** for you to work through all the material.
 It's intended to get your brain thinking about the right questions to ask me as
 _I_ walk through the material.
 
-### Helpful Emoji 🐨 🦺 💰 📝 🦉 📜 💣 💪 🏁 👨‍💼 🚨
+## Helpful Emoji 🐨 🦺 💰 📝 🦉 📜 💣 💪 🏁 👨‍💼 🚨
 
 Each exercise has comments in it to help you get through the exercise. These fun
 emoji characters are here to help you.

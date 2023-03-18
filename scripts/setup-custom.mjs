@@ -65,3 +65,14 @@ await pMap(
 	},
 	{ concurrency: Math.ceil(os.cpus().length / 3) },
 )
+
+console.log('🎭  installing playwright for testing...')
+const { all, extiCode } = await $({
+	all: true,
+})`npx playwright install chromium --with-deps`
+if (exitCode === 0) {
+	console.log('✅  playwright installed')
+} else {
+	console.log(all)
+	throw new Error('❌  playwright install failed')
+}
