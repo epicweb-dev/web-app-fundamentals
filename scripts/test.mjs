@@ -5,8 +5,9 @@ import fs from 'fs'
 import path from 'path'
 import { spawn } from 'child_process'
 import {
-	getExampleApps,
-	getSolutionApps,
+	getApps,
+	isExampleApp,
+	isSolutionApp,
 } from '@kentcdodds/workshop-app/build/utils/apps.server.js'
 
 const styles = {
@@ -30,8 +31,9 @@ const workshopRoot = here('..')
 const relativeToWorkshopRoot = dir =>
 	dir.replace(`${workshopRoot}${path.sep}`, '')
 
-const solutionApps = await getSolutionApps()
-const exampleApps = await getExampleApps()
+const apps = await getApps()
+const solutionApps = apps.filter(isSolutionApp)
+const exampleApps = apps.filter(isExampleApp)
 
 let exitCode = 0
 
