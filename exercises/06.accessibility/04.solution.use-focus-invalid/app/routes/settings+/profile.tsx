@@ -468,6 +468,7 @@ export default function EditUserProfile() {
 							type="submit"
 							size="md-wide"
 							variant="primary"
+							disabled={isSubmitting}
 							status={isSubmitting ? 'pending' : actionData?.status ?? 'idle'}
 						>
 							Save changes

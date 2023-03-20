@@ -71,10 +71,19 @@
       "path": "exercises/04.mutations/02.solution.actions"
     },
     {
+      "path": "exercises/04.mutations/03.problem.fields"
+    },
+    {
       "path": "exercises/04.mutations/03.solution.fields"
     },
     {
+      "path": "exercises/04.mutations/04.problem.typescript"
+    },
+    {
       "path": "exercises/04.mutations/04.solution.typescript"
+    },
+    {
+      "path": "exercises/04.mutations/05.problem.pending"
     },
     {
       "path": "exercises/04.mutations/05.solution.pending"

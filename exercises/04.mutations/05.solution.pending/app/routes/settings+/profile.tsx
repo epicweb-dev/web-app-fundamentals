@@ -2,7 +2,6 @@ import { json, redirect, type DataFunctionArgs } from '@remix-run/node'
 import {
 	Form,
 	Link,
-	useActionData,
 	useFormAction,
 	useLoaderData,
 	useNavigation,
@@ -47,7 +46,6 @@ export async function action({ request }: DataFunctionArgs) {
 
 export default function EditUserProfile() {
 	const data = useLoaderData<typeof loader>()
-	const actionData = useActionData<typeof action>()
 	const navigation = useNavigation()
 	const formAction = useFormAction()
 
@@ -100,6 +98,7 @@ export default function EditUserProfile() {
 							type="submit"
 							size="md-wide"
 							variant="primary"
+							disabled={isSubmitting}
 							status={isSubmitting ? 'pending' : 'idle'}
 						>
 							Save changes
