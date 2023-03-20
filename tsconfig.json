@@ -35,13 +35,19 @@
       "path": "exercises/01.styling/05.solution.css-bundle"
     },
     {
-      "path": "exercises/02.routing/01-03.problem"
+      "path": "exercises/02.routing/01.problem.routes"
     },
     {
       "path": "exercises/02.routing/01.solution.routes"
     },
     {
+      "path": "exercises/02.routing/02.problem.links"
+    },
+    {
       "path": "exercises/02.routing/02.solution.links"
+    },
+    {
+      "path": "exercises/02.routing/03.problem.params"
     },
     {
       "path": "exercises/02.routing/03.solution.params"
@@ -159,6 +165,12 @@
     },
     {
       "path": "exercises/08.seo/03.solution.errors"
+    },
+    {
+      "path": "exercises/08.seo/04.problem.merge"
+    },
+    {
+      "path": "exercises/08.seo/04.solution.merge"
     }
   ]
 }

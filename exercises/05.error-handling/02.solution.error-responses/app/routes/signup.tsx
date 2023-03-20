@@ -1,9 +1,4 @@
-import {
-	json,
-	redirect,
-	type DataFunctionArgs,
-	type V2_MetaFunction,
-} from '@remix-run/node'
+import { json, redirect, type DataFunctionArgs } from '@remix-run/node'
 import { useFetcher, useLoaderData } from '@remix-run/react'
 import { z } from 'zod'
 import { GeneralErrorBoundary } from '~/components/error-boundary'
@@ -17,6 +12,7 @@ import {
 	preprocessFormData,
 	useForm,
 } from '~/utils/forms'
+import { mergeMeta } from '~/utils/misc'
 import { getDomainUrl } from '~/utils/misc.server'
 import { commitSession, getSession } from '~/utils/session.server'
 import { emailSchema } from '~/utils/user-validation'
@@ -109,14 +105,9 @@ export async function action({ request }: DataFunctionArgs) {
 	}
 }
 
-export const meta: V2_MetaFunction = ({ matches }) => {
-	let rootModule = matches.find(match => match.route.id === 'root')
-
-	return [
-		...(rootModule?.meta ?? [])?.filter(meta => !('title' in meta)),
-		{ title: 'Sign Up | Rocket Rental' },
-	]
-}
+export const meta = mergeMeta(() => {
+	return [{ title: 'Sign Up | Rocket Rental' }]
+})
 
 export default function SignupRoute() {
 	const data = useLoaderData<typeof loader>()

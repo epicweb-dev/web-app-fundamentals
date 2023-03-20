@@ -134,3 +134,7 @@ export function ErrorBoundary() {
 		/>
 	)
 }
+
+// 🐨 add a meta export here that returns the title and description for this page
+// Use the user's name (username fallback) for the title
+// The description should include a count of how many bookings they've had

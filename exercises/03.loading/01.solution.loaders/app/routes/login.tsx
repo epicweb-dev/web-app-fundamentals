@@ -1,12 +1,9 @@
-import {
-	json,
-	type DataFunctionArgs,
-	type V2_MetaFunction,
-} from '@remix-run/node'
+import { json, type DataFunctionArgs } from '@remix-run/node'
 import { useLoaderData, useSearchParams } from '@remix-run/react'
 import { GeneralErrorBoundary } from '~/components/error-boundary'
 import { Spacer } from '~/components/spacer'
 import { authenticator } from '~/utils/auth.server'
+import { mergeMeta } from '~/utils/misc'
 import { commitSession, getSession } from '~/utils/session.server'
 import { InlineLogin } from './resources+/login'
 
@@ -30,14 +27,9 @@ export async function loader({ request }: DataFunctionArgs) {
 	)
 }
 
-export const meta: V2_MetaFunction = ({ matches }) => {
-	let rootModule = matches.find(match => match.route.id === 'root')
-
-	return [
-		...(rootModule?.meta ?? [])?.filter(meta => !('title' in meta)),
-		{ title: 'Login to Rocket Rental' },
-	]
-}
+export const meta = mergeMeta(() => {
+	return [{ title: 'Login to Rocket Rental' }]
+})
 
 export default function LoginPage() {
 	const [searchParams] = useSearchParams()

@@ -260,9 +260,7 @@ export const meta: V2_MetaFunction<typeof loader> = ({ data }) => {
 		{ title: `${displayName} | Rocket Rental Host` },
 		{
 			name: 'description',
-			content: `Take a look at ${displayName}'s ${
-				data?.user.host.ships.length ?? 'great'
-			} rockets on Rocket Rental.`,
+			content: `Take a look at ${displayName}'s ${data.user.host.ships.length} rockets on Rocket Rental.`,
 		},
 	]
 }

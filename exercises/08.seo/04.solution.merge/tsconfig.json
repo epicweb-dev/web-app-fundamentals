@@ -1,0 +1,32 @@
+{
+	"include": [
+		"remix.env.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		"./test/setup-test-env.ts"
+	],
+	"compilerOptions": {
+		"lib": ["DOM", "DOM.Iterable", "ES2019"],
+		"isolatedModules": true,
+		"esModuleInterop": true,
+		"jsx": "react-jsx",
+		"module": "CommonJS",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"target": "ES2019",
+		"strict": true,
+		"noImplicitAny": true,
+		"allowJs": true,
+		"forceConsistentCasingInFileNames": true,
+		"baseUrl": ".",
+		"paths": {
+			"~/*": ["./app/*"],
+			"prisma/*": ["./prisma/*"],
+			"test/*": ["./test/*"]
+		},
+		"skipLibCheck": true,
+
+		// Remix takes care of building everything in `remix build`.
+		"noEmit": true
+	}
+}

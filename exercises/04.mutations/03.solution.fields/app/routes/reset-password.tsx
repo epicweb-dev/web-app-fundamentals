@@ -1,9 +1,4 @@
-import {
-	json,
-	redirect,
-	type DataFunctionArgs,
-	type V2_MetaFunction,
-} from '@remix-run/node'
+import { json, redirect, type DataFunctionArgs } from '@remix-run/node'
 import {
 	Form,
 	useActionData,
@@ -21,6 +16,7 @@ import {
 	preprocessFormData,
 	useForm,
 } from '~/utils/forms'
+import { mergeMeta } from '~/utils/misc'
 import { commitSession, getSession } from '~/utils/session.server'
 import { passwordSchema } from '~/utils/user-validation'
 import { resetPasswordSessionKey } from './forgot-password'
@@ -87,14 +83,9 @@ export async function action({ request }: DataFunctionArgs) {
 	})
 }
 
-export const meta: V2_MetaFunction = ({ matches }) => {
-	let rootModule = matches.find(match => match.route.id === 'root')
-
-	return [
-		...(rootModule?.meta ?? [])?.filter(meta => !('title' in meta)),
-		{ title: 'Reset Password | Rocket Rental' },
-	]
-}
+export const meta = mergeMeta(() => {
+	return [{ title: 'Reset Password | Rocket Rental' }]
+})
 
 export default function ResetPasswordPage() {
 	const data = useLoaderData<typeof loader>()

@@ -145,9 +145,7 @@ export const meta: V2_MetaFunction<typeof loader> = ({ data }) => {
 		{ title: `${displayName} | Rocket Rental Renter` },
 		{
 			name: 'description',
-			content: `${displayName} has flown ${
-				data?.totalBookings ?? 'some'
-			} times in rockets on Rocket Rental.`,
+			content: `${displayName} has flown ${data.totalBookings} times in rockets on Rocket Rental.`,
 		},
 	]
 }

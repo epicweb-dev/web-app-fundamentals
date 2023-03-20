@@ -1,5 +1,5 @@
 import * as Tabs from '@radix-ui/react-tabs'
-import { type LinksFunction, type V2_MetaFunction } from '@remix-run/node'
+import { type LinksFunction } from '@remix-run/node'
 import { Form, Link } from '@remix-run/react'
 import clsx from 'clsx'
 import { useRef, useState } from 'react'
@@ -10,10 +10,6 @@ import indexStylesheetUrl from './index.css'
 export const links: LinksFunction = () => [
 	{ rel: 'stylesheet', href: indexStylesheetUrl },
 ]
-
-export const meta: V2_MetaFunction = ({ matches }) => {
-	return matches.find(match => match.route.id === 'root')?.meta ?? []
-}
 
 export default function Index() {
 	return (
