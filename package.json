@@ -23,8 +23,8 @@
   "license": "GPL-3.0-only",
   "dependencies": {
     "@kentcdodds/workshop-app": "^1.22.3",
-    "@prisma/client": "npm:noist@^1.0.0",
-    "prisma": "npm:noist@^1.0.0"
+    "@prisma/client": "^4.11.0",
+    "prisma": "^4.11.0"
   },
   "eslintIgnore": [
     "/node_modules",
@@ -42,7 +42,6 @@
   "devDependencies": {
     "cross-env": "^7.0.3",
     "execa": "^7.1.1",
-    "fs-extra": "^11.1.1",
-    "p-map": "^5.5.0"
+    "fs-extra": "^11.1.1"
   }
 }

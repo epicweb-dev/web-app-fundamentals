@@ -84,7 +84,7 @@ Please do ask! Interrupt me. If you have an unrelated question, please ask on
 - **Marty the Money Bag** 💰 "Here's a hint"
 - **Olivia the Owl** 🦉 "Pro-tip"
 - **Dominic the Document** 📜 "Docs links"
-- **Berry the Bomb** 💣 "Remove this code"
+- **Barry the Bomb** 💣 "Remove this code"
 - **Peter the Product Manager** 👨‍💼 "Story time"
 - **Alfred the Alert** 🚨 "Extra helpful in test errors"
 

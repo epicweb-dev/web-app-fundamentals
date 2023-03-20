@@ -45,6 +45,10 @@ variable and how to fix it here for [windows][win-path] or
 
 ## Setup
 
+This is a pretty large project (it's actually many apps in one) so it can take
+several minutes to get everything set up the first time. Please have a strong
+network connection before running the setup and grab a snack.
+
 Follow these steps to get this set up:
 
 ```sh
@@ -131,7 +135,7 @@ emoji characters are here to help you.
   learning
 - **Olivia the Owl** 🦉 will give you useful tidbits/best practice notes
 - **Dominic the Document** 📜 will give you links to useful documentation
-- **Berry the Bomb** 💣 will be hanging around anywhere you need to blow stuff
+- **Barry the Bomb** 💣 will be hanging around anywhere you need to blow stuff
   up (delete code)
 - **Matthew the Muscle** 💪 will indicate that you're working with an exercise
 - **Chuck the Checkered Flag** 🏁 will indicate that you're working with a final

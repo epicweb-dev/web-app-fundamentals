@@ -1,5 +1,5 @@
 import { json, type DataFunctionArgs } from '@remix-run/node'
-import { useLoaderData } from '@remix-run/react'
+import { Outlet, useLoaderData } from '@remix-run/react'
 import { getUserId } from '~/utils/auth.server'
 import { prisma } from '~/utils/db.server'
 
@@ -17,5 +17,10 @@ export async function loader({ request, params }: DataFunctionArgs) {
 export default function UserRoute() {
 	const data = useLoaderData<typeof loader>()
 
-	return <pre>{JSON.stringify(data, null, 2)}</pre>
+	return (
+		<div className="mt-36 mb-48">
+			<pre>{JSON.stringify(data, null, 2)}</pre>
+			<Outlet />
+		</div>
+	)
 }
