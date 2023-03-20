@@ -198,12 +198,16 @@ export default function EditUserProfile() {
 		]
 		if (!allErrors.length) return
 
-		if (formEl.getAttribute('aria-invalid')) {
+		if (formEl.matches('[aria-invalid="true"]')) {
 			formEl.focus()
 		} else {
-			const firstInvalidElement = formEl.querySelector('[aria-invalid]')
-			if (firstInvalidElement instanceof HTMLElement) {
-				firstInvalidElement.focus()
+			for (const formElement of formEl.elements) {
+				if (
+					formElement.matches('[aria-invalid="true"]') &&
+					formElement instanceof HTMLElement
+				) {
+					formElement.focus()
+				}
 			}
 		}
 	}, [actionData])
@@ -261,8 +265,8 @@ export default function EditUserProfile() {
 				<Form
 					method="post"
 					aria-invalid={hasFormErrors ? true : undefined}
-					aria-errormessage={hasFormErrors ? 'form-errors' : undefined}
-					tabIndex={hasFormErrors ? -1 : undefined}
+					aria-describedby={hasFormErrors ? 'form-errors' : undefined}
+					tabIndex={-1}
 					ref={formRef}
 				>
 					<div className="grid grid-cols-6 gap-x-10">
@@ -373,7 +377,7 @@ export default function EditUserProfile() {
 											variant="secondary"
 											type="submit"
 											form={createHostFormId}
-											aria-errormessage={
+											aria-describedby={
 												createHostFetcher.data?.status === 'error'
 													? 'create-host-error'
 													: undefined
@@ -419,7 +423,7 @@ export default function EditUserProfile() {
 											variant="secondary"
 											type="submit"
 											form={createRenterFormId}
-											aria-errormessage={
+											aria-describedby={
 												createRenterFetcher.data?.status === 'error'
 													? 'create-renter-error'
 													: undefined

@@ -238,7 +238,7 @@ export default function EditUserProfile() {
 				<Form
 					method="post"
 					aria-invalid={hasFormErrors ? true : undefined}
-					aria-errormessage={hasFormErrors ? 'form-errors' : undefined}
+					aria-describedby={hasFormErrors ? 'form-errors' : undefined}
 				>
 					<div className="grid grid-cols-6 gap-x-10">
 						<Field
@@ -348,7 +348,7 @@ export default function EditUserProfile() {
 											variant="secondary"
 											type="submit"
 											form={createHostFormId}
-											aria-errormessage={
+											aria-describedby={
 												createHostFetcher.data?.status === 'error'
 													? 'create-host-error'
 													: undefined
@@ -394,7 +394,7 @@ export default function EditUserProfile() {
 											variant="secondary"
 											type="submit"
 											form={createRenterFormId}
-											aria-errormessage={
+											aria-describedby={
 												createRenterFetcher.data?.status === 'error'
 													? 'create-renter-error'
 													: undefined

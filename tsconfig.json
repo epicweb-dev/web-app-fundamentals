@@ -119,16 +119,25 @@
       "path": "exercises/06.form-validation/02.solution.async-form-validation"
     },
     {
-      "path": "exercises/07.accessibility/01-04.problem"
+      "path": "exercises/07.accessibility/01.problem.labels"
     },
     {
       "path": "exercises/07.accessibility/01.solution.labels"
     },
     {
+      "path": "exercises/07.accessibility/02.problem.aria"
+    },
+    {
       "path": "exercises/07.accessibility/02.solution.aria"
     },
     {
+      "path": "exercises/07.accessibility/03.problem.focus"
+    },
+    {
       "path": "exercises/07.accessibility/03.solution.focus"
+    },
+    {
+      "path": "exercises/07.accessibility/04.problem.use-focus-invalid"
     },
     {
       "path": "exercises/07.accessibility/04.solution.use-focus-invalid"

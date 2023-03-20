@@ -315,7 +315,7 @@ export default function EditUserProfile() {
 											variant="secondary"
 											type="submit"
 											form={createHostFormId}
-											aria-errormessage={
+											aria-describedby={
 												createHostFetcher.data?.status === 'error'
 													? 'create-host-error'
 													: undefined
@@ -361,7 +361,7 @@ export default function EditUserProfile() {
 											variant="secondary"
 											type="submit"
 											form={createRenterFormId}
-											aria-errormessage={
+											aria-describedby={
 												createRenterFetcher.data?.status === 'error'
 													? 'create-renter-error'
 													: undefined
