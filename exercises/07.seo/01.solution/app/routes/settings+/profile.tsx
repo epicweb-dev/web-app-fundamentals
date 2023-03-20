@@ -1,4 +1,4 @@
-import { json, redirect, type DataFunctionArgs } from '@remix-run/node'
+import { json, type DataFunctionArgs } from '@remix-run/node'
 import {
 	Form,
 	Link,
@@ -56,8 +56,7 @@ export async function loader({ request }: DataFunctionArgs) {
 		},
 	})
 	if (!user) {
-		await authenticator.logout(request, { redirectTo: '/' })
-		throw redirect('/')
+		throw await authenticator.logout(request, { redirectTo: '/' })
 	}
 	return json({ user })
 }
@@ -103,8 +102,7 @@ export async function action({ request }: DataFunctionArgs) {
 				select: { username: true },
 			})
 			if (!currentUser) {
-				await authenticator.logout(request, { redirectTo: '/' })
-				throw redirect('/')
+				throw await authenticator.logout(request, { redirectTo: '/' })
 			}
 
 			const valid = await verifyLogin(currentUser.username, currentPassword)

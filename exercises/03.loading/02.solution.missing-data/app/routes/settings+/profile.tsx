@@ -1,4 +1,4 @@
-import { json, redirect, type DataFunctionArgs } from '@remix-run/node'
+import { json, type DataFunctionArgs } from '@remix-run/node'
 import { Link, useLoaderData } from '@remix-run/react'
 import { authenticator, requireUserId } from '~/utils/auth.server'
 import { prisma } from '~/utils/db.server'
@@ -16,8 +16,7 @@ export async function loader({ request }: DataFunctionArgs) {
 		},
 	})
 	if (!user) {
-		await authenticator.logout(request, { redirectTo: '/' })
-		throw redirect('/')
+		throw await authenticator.logout(request, { redirectTo: '/' })
 	}
 	return json({ user })
 }

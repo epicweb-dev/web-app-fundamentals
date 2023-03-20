@@ -1,4 +1,3 @@
-import * as Checkbox from '@radix-ui/react-checkbox'
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import { cssBundleHref } from '@remix-run/css-bundle'
 import {
@@ -16,11 +15,9 @@ import {
 	Outlet,
 	Scripts,
 	ScrollRestoration,
-	useFetcher,
 	useLoaderData,
 	useSubmit,
 } from '@remix-run/react'
-import clsx from 'clsx'
 import { useId, useState } from 'react'
 import { KCDShopIFrameSync } from '@kentcdodds/workshop-app/iframe-sync'
 import appStylesheetUrl from './styles/app.css'

@@ -12,12 +12,18 @@ import { prisma } from '~/utils/db.server'
 import { Button } from '~/utils/forms'
 
 export async function loader({ request, params }: DataFunctionArgs) {
+	// 🐨 use invariant (from the 'tiny-invariant' package) to throw an error if
+	// the username is missing from the params
 	const loggedInUserId = await getUserId(request)
 	const user = await prisma.user.findUnique({
 		where: { username: params.username },
 	})
+	// 🐨 if the user does not exist, throw a 404 response
+	// 🦉 we'll handle this error in a later exercise.
 
 	return json({
+		// 🐨 you can now remove the optional chain (the ? mark here) because the
+		// user will always be defined now
 		isSelf: user?.id === loggedInUserId,
 	})
 }

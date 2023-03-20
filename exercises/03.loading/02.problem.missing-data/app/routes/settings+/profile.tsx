@@ -15,6 +15,13 @@ export async function loader({ request }: DataFunctionArgs) {
 			imageId: true,
 		},
 	})
+	// 🦉 if the user is not found, then they are apparently logged in
+	// (because requireUserId verified that), but there is no user account for
+	// them. This could happen if their account got deleted.
+	// 🐨 So let's log them out and redirect them home.
+	// 💰 you can use the `authenticator.logout` from '~/utils/auth.server' to do this:
+	// 💰 throw await authenticator.logout(request, { redirectTo: '/' })
+
 	return json({ user })
 }
 
@@ -24,6 +31,7 @@ export default function EditUserProfile() {
 	return (
 		<div className="container m-auto mt-16 mb-36 max-w-3xl">
 			<div className="flex gap-3">
+				{/* 🐨 you can remove the optional chaning on data.user?. because the user will always be defined now */}
 				<Link className="text-night-300" to={`/users/${data.user?.username}`}>
 					Profile
 				</Link>
@@ -34,6 +42,7 @@ export default function EditUserProfile() {
 				<div className="flex justify-center">
 					<div className="relative h-52 w-52">
 						<img
+							// 🐨 you can remove the optional chaning on data.user?. here too
 							src={getUserImgSrc(data.user?.imageId)}
 							alt={data.user?.username}
 							className="h-full w-full rounded-full object-cover"
