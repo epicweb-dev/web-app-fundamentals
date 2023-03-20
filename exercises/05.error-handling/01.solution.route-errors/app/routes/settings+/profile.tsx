@@ -23,6 +23,8 @@ import { Button, ErrorList, Field, TextareaField } from '~/utils/forms'
 import { getUserImgSrc } from '~/utils/misc'
 
 export async function loader({ request }: DataFunctionArgs) {
+	// 🐨 to test the ErrorBoundary for loaders, go ahead and (temporarily) uncomment this:
+	// throw new Error('loader error')
 	const userId = await requireUserId(request)
 	const user = await prisma.user.findUnique({
 		where: { id: userId },
@@ -54,6 +56,9 @@ export async function loader({ request }: DataFunctionArgs) {
 }
 
 export async function action({ request }: DataFunctionArgs) {
+	// 🐨 to test the ErrorBoundary for actions, go ahead and (temporarily) uncomment this:
+	// throw new Error('action error')
+	// 🐨 then try to submit the form...
 	const userId = await requireUserId(request)
 	const {
 		name,
@@ -118,6 +123,8 @@ function usePreviousValue<Value>(value: Value): Value {
 }
 
 export default function EditUserProfile() {
+	// 🐨 to test the ErrorBoundary for rendering, go ahead and (temporarily) uncomment this:
+	// throw new Error('render error')
 	const data = useLoaderData<typeof loader>()
 	const navigation = useNavigation()
 	const formAction = useFormAction()

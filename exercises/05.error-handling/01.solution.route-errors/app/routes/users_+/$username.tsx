@@ -5,6 +5,7 @@ import {
 	Outlet,
 	useLoaderData,
 	useMatches,
+	useRouteError,
 } from '@remix-run/react'
 import clsx from 'clsx'
 import invariant from 'tiny-invariant'
@@ -77,6 +78,17 @@ export default function UserRoute() {
 				</div>
 			)}
 			<Outlet />
+		</div>
+	)
+}
+
+export function ErrorBoundary() {
+	const error = useRouteError()
+	console.error(error)
+
+	return (
+		<div className="container mx-auto flex items-center justify-center p-20 text-h2 text-accent-red">
+			<p>Oh no, something went wrong. Sorry about that.</p>
 		</div>
 	)
 }

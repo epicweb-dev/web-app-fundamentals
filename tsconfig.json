@@ -89,40 +89,55 @@
       "path": "exercises/04.mutations/05.solution.pending"
     },
     {
-      "path": "exercises/05.error-handling/01-04.problem"
+      "path": "exercises/05.error-handling/01.problem.route-errors"
     },
     {
       "path": "exercises/05.error-handling/01.solution.route-errors"
     },
     {
+      "path": "exercises/05.error-handling/02.problem.error-responses"
+    },
+    {
       "path": "exercises/05.error-handling/02.solution.error-responses"
+    },
+    {
+      "path": "exercises/05.error-handling/03.problem.error-abstraction"
     },
     {
       "path": "exercises/05.error-handling/03.solution.error-abstraction"
     },
     {
-      "path": "exercises/05.error-handling/04.solution.form-validation"
+      "path": "exercises/06.form-validation/01.problem.form-validation"
     },
     {
-      "path": "exercises/06.accessibility/01-04.problem"
+      "path": "exercises/06.form-validation/01.solution.form-validation"
     },
     {
-      "path": "exercises/06.accessibility/01.solution.labels"
+      "path": "exercises/06.form-validation/02.problem.async-form-validation"
     },
     {
-      "path": "exercises/06.accessibility/02.solution.aria"
+      "path": "exercises/06.form-validation/02.solution.async-form-validation"
     },
     {
-      "path": "exercises/06.accessibility/03.solution.focus"
+      "path": "exercises/07.accessibility/01-04.problem"
     },
     {
-      "path": "exercises/06.accessibility/04.solution.use-focus-invalid"
+      "path": "exercises/07.accessibility/01.solution.labels"
     },
     {
-      "path": "exercises/07.seo/01.problem"
+      "path": "exercises/07.accessibility/02.solution.aria"
     },
     {
-      "path": "exercises/07.seo/01.solution"
+      "path": "exercises/07.accessibility/03.solution.focus"
+    },
+    {
+      "path": "exercises/07.accessibility/04.solution.use-focus-invalid"
+    },
+    {
+      "path": "exercises/08.seo/01.problem"
+    },
+    {
+      "path": "exercises/08.seo/01.solution"
     }
   ]
 }
