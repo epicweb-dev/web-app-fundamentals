@@ -1,4 +1,9 @@
-import { type SerializeFrom } from '@remix-run/node'
+import {
+	type LoaderFunction,
+	type V2_HtmlMetaDescriptor,
+	type V2_MetaFunction,
+	type SerializeFrom,
+} from '@remix-run/node'
 import { useRouteLoaderData } from '@remix-run/react'
 import { type loader as rootLoader } from '~/root'
 
@@ -80,4 +85,44 @@ export function getErrorMessage(error: unknown) {
 	}
 	console.error('Unable to get error message for error', error)
 	return 'Unknown Error'
+}
+
+export function mergeMeta<
+	Loader extends unknown = unknown,
+	ParentsLoaders extends Record<string, LoaderFunction> = {},
+>(
+	overrideFn: V2_MetaFunction<Loader, ParentsLoaders>,
+	appendFn?: V2_MetaFunction<Loader, ParentsLoaders>,
+): V2_MetaFunction<Loader, ParentsLoaders> {
+	return arg => {
+		// get meta from parent routes
+		let mergedMeta = arg.matches.reduce((acc, match) => {
+			return acc.concat(match.meta || [])
+		}, [] as V2_HtmlMetaDescriptor[])
+
+		// replace any parent meta with the same name or property with the override
+		let overrides = overrideFn(arg)
+		for (let override of overrides) {
+			let index = mergedMeta.findIndex(
+				meta =>
+					('name' in meta &&
+						'name' in override &&
+						meta.name === override.name) ||
+					('property' in meta &&
+						'property' in override &&
+						meta.property === override.property) ||
+					('title' in meta && 'title' in override),
+			)
+			if (index !== -1) {
+				mergedMeta.splice(index, 1, override)
+			}
+		}
+
+		// append any additional meta
+		if (appendFn) {
+			mergedMeta = mergedMeta.concat(appendFn(arg))
+		}
+
+		return mergedMeta
+	}
 }

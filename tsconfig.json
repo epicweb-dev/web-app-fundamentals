@@ -143,10 +143,22 @@
       "path": "exercises/07.accessibility/04.solution.use-focus-invalid"
     },
     {
-      "path": "exercises/08.seo/01.problem"
+      "path": "exercises/08.seo/01.problem.static"
     },
     {
-      "path": "exercises/08.seo/01.solution"
+      "path": "exercises/08.seo/01.solution.static"
+    },
+    {
+      "path": "exercises/08.seo/02.problem.dynamic"
+    },
+    {
+      "path": "exercises/08.seo/02.solution.dynamic"
+    },
+    {
+      "path": "exercises/08.seo/03.problem.errors"
+    },
+    {
+      "path": "exercises/08.seo/03.solution.errors"
     }
   ]
 }
