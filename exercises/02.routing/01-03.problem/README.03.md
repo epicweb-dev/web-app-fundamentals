@@ -23,21 +23,21 @@ Once you've finished with that, you should be able to go to any username and it
 will display that username. Here are some to try:
 
 <div>
-- <LinkToApp to="/users/kody" />
-- <LinkToApp to="/users/Marty123" />
-- <LinkToApp to="/users/Alfred" />
-- <LinkToApp to="/users/hannah" />
-- <LinkToApp to="/users/olivia" />
-- <LinkToApp to="/users/peter" />
+	* <LinkToApp to="/users/kody" />
+	* <LinkToApp to="/users/Marty123" />
+	* <LinkToApp to="/users/Alfred" />
+	* <LinkToApp to="/users/hannah" />
+	* <LinkToApp to="/users/olivia" />
+	* <LinkToApp to="/users/peter" />
 </div>
 
 <TouchedFiles>
   <div id="files">
     <ul>
-      <li data-state="renamed">
-        <span>renamed</span>
+      <li data-state="added">
+        <span>added</span>
 
-        <InlineFile file="app/routes/users_+/kody.host.tsx" />
+        <InlineFile file="app/routes/users_+/$username.host.tsx" />
       </li>
 
       <li data-state="added">
@@ -46,22 +46,16 @@ will display that username. Here are some to try:
         <InlineFile file="app/routes/users_+/$username.index.tsx" />
       </li>
 
-      <li data-state="renamed">
-        <span>renamed</span>
+      <li data-state="added">
+        <span>added</span>
 
-        <InlineFile file="app/routes/users_+/kody.renter.tsx" />
+        <InlineFile file="app/routes/users_+/$username.renter.tsx" />
       </li>
 
       <li data-state="added">
         <span>added</span>
 
         <InlineFile file="app/routes/users_+/$username.tsx" />
-      </li>
-
-      <li data-state="deleted">
-        <span>deleted</span>
-
-        <InlineFile file="app/routes/users_+/kody.tsx" />
       </li>
     </ul>
 

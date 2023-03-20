@@ -41,12 +41,17 @@ start that component out by returning a with a title like this:
 star field and Rocket Rental logo are on the page as well, even though you
 didn't render those yourself. That's because you're actually **already using
 nested routing!** The route you just created is nested inside
+
 <InlineFile file="app/root.tsx" line="89" />!
 
 Now, let's create the host route. 🐨 First,
-<InlineFile file="app/routes/users_+/kody.host.tsx">create
-<code>app/routes/users\_+/kody.host.tsx</code></InlineFile>, and then stick this
-in it:
+
+<InlineFile file="app/routes/users_+/kody.host.tsx">
+	create
+	<code>app/routes/users\_+/kody.host.tsx</code>
+</InlineFile>
+
+, and then stick this in it:
 
 ```tsx
 export default function KodyHost() {
@@ -112,6 +117,7 @@ tell Remix where to put the child (`/users/kody/host`). And we do this using the
 `<Outlet />` component.
 
 🐨 So go ahead and open the
+
 <InlineFile file="app/routes/users_+/kody.tsx" line={4} column={99} /> file and
 get the `<Outlet />` component from `@remix-run/react`, then render it below the
 `<h1>` we put in there earlier.
@@ -164,7 +170,26 @@ an index route, so here's what we'll do:
 Awesome! You've got the route files made. 🎉
 
 <TouchedFiles>
-	<div id="files">
-		<p>No files changed</p>
-	</div>
+  <div id="files">
+    <ul>
+      <li data-state="added">
+        <span>added</span>
+
+        <InlineFile file="app/routes/users_+/kody.host.tsx" />
+      </li>
+
+      <li data-state="added">
+        <span>added</span>
+
+        <InlineFile file="app/routes/users_+/kody.renter.tsx" />
+      </li>
+
+      <li data-state="added">
+        <span>added</span>
+
+        <InlineFile file="app/routes/users_+/kody.tsx" />
+      </li>
+    </ul>
+
+  </div>
 </TouchedFiles>

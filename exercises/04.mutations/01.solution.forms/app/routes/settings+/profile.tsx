@@ -22,20 +22,6 @@ export async function loader({ request }: DataFunctionArgs) {
 	return json({ user })
 }
 
-export async function action({ request }: DataFunctionArgs) {
-	const userId = await requireUserId(request)
-	const { name, username } = Object.fromEntries(await request.formData())
-
-	await prisma.user.update({
-		select: { id: true },
-		where: { id: userId },
-		// @ts-expect-error - we'll fix this in the next exercise
-		data: { name, username },
-	})
-
-	return json({ status: 'success' } as const)
-}
-
 export default function EditUserProfile() {
 	const data = useLoaderData<typeof loader>()
 
@@ -62,7 +48,7 @@ export default function EditUserProfile() {
 					<div className="grid grid-cols-6 gap-x-10">
 						<div className="col-span-3">
 							{/*
-								NOTE: this is not accessible, but don't worry,
+								🦉 this is not accessible, but don't worry,
 								we've got an exercise later to make it that way
 							*/}
 							<label>Username</label>
@@ -74,7 +60,7 @@ export default function EditUserProfile() {
 						</div>
 						<div className="col-span-3">
 							{/*
-								NOTE: this is not accessible, but don't worry,
+								🦉 this is not accessible, but don't worry,
 								we've got an exercise later to make it that way
 							*/}
 							<label>Name</label>

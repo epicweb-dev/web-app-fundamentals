@@ -1,4 +1,4 @@
-import { json, type DataFunctionArgs } from '@remix-run/node'
+import { json, redirect, type DataFunctionArgs } from '@remix-run/node'
 import {
 	Form,
 	Link,
@@ -122,8 +122,8 @@ export async function action({ request }: DataFunctionArgs) {
 		return json({ status: 'error', errors } as const, { status: 400 })
 	}
 
-	await prisma.user.update({
-		select: { id: true },
+	const updatedUser = await prisma.user.update({
+		select: { username: true },
 		where: { id: userId },
 		data: {
 			name,
@@ -151,7 +151,7 @@ export async function action({ request }: DataFunctionArgs) {
 		},
 	})
 
-	return json({ status: 'success' } as const)
+	return redirect(`/users/${updatedUser.username}`)
 }
 
 function usePreviousValue<Value>(value: Value): Value {

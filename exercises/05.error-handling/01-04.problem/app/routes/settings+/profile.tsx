@@ -1,9 +1,8 @@
-import { json, type DataFunctionArgs } from '@remix-run/node'
+import { json, redirect, type DataFunctionArgs } from '@remix-run/node'
 import {
 	Form,
 	Link,
 	Outlet,
-	useActionData,
 	useFetcher,
 	useFormAction,
 	useLoaderData,
@@ -77,8 +76,8 @@ export async function action({ request }: DataFunctionArgs) {
 	invariant(typeof zip === 'string', 'zip must be a string')
 	invariant(typeof country === 'string', 'country must be a string')
 
-	await prisma.user.update({
-		select: { id: true },
+	const updatedUser = await prisma.user.update({
+		select: { username: true },
 		where: { id: userId },
 		data: {
 			name,
@@ -106,7 +105,7 @@ export async function action({ request }: DataFunctionArgs) {
 		},
 	})
 
-	return json({ status: 'success' } as const)
+	return redirect(`/users/${updatedUser.username}`)
 }
 
 function usePreviousValue<Value>(value: Value): Value {
@@ -119,7 +118,6 @@ function usePreviousValue<Value>(value: Value): Value {
 
 export default function EditUserProfile() {
 	const data = useLoaderData<typeof loader>()
-	const actionData = useActionData<typeof action>()
 	const navigation = useNavigation()
 	const formAction = useFormAction()
 	const createHostFetcher = useFetcher<typeof createHost.action>()
@@ -381,7 +379,7 @@ export default function EditUserProfile() {
 							type="submit"
 							size="md-wide"
 							variant="primary"
-							status={isSubmitting ? 'pending' : actionData?.status ?? 'idle'}
+							status={isSubmitting ? 'pending' : 'idle'}
 						>
 							Save changes
 						</Button>

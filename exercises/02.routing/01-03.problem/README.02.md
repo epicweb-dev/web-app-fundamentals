@@ -7,8 +7,9 @@ the `Link` component from `@remix-run/react`.
 🐨 Add three Link elements above the `<Outlet />`. The router in Remix supports
 "relative" links, so you can just pass the route name to the `to` prop. The
 links should go to <LinkToApp to="/users/kody" />,
-<LinkToApp to="/users/kody/host" />, and <LinkToApp to="/users/kody/renter" />.
-Because these links will be rendered in the <LinkToApp to="/users/kody" />
+
+<LinkToApp to="/users/kody/host" />, and <LinkToApp to="/users/kody/renter" />. Because
+these links will be rendered in the <LinkToApp to="/users/kody" />
 route, you can pass the route name to the `to` prop.
 
 The `index` route may be tricky because if you try to pass `"index"` to the `to`
@@ -27,8 +28,26 @@ updated!
 <TouchedFiles>
   <div id="files">
     <ul>
-      <li data-state="modified">
-        <span>modified</span>
+      <li data-state="added">
+        <span>added</span>
+
+        <InlineFile file="app/routes/users_+/kody.host.tsx" />
+      </li>
+
+      <li data-state="added">
+        <span>added</span>
+
+        <InlineFile file="app/routes/users_+/kody.index.tsx" />
+      </li>
+
+      <li data-state="added">
+        <span>added</span>
+
+        <InlineFile file="app/routes/users_+/kody.renter.tsx" />
+      </li>
+
+      <li data-state="added">
+        <span>added</span>
 
         <InlineFile file="app/routes/users_+/kody.tsx" />
       </li>
