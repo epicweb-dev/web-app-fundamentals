@@ -36,7 +36,7 @@ async function seed() {
 	console.timeEnd('🧹 Cleaned up the database...')
 
 	const citiesToCreate = allTheCities
-		.filter(c => c.population > 75_000)
+		.filter(c => c.population > 750_000)
 		.sort((a, z) => z.population - a.population)
 
 	console.time(`🌃 Created ${citiesToCreate.length} cities...`)
