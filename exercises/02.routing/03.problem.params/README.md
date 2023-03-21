@@ -52,8 +52,14 @@ will display that username. Here are some to try:
         <InlineFile file="app/routes/users_+/kody.renter.tsx" />
       </li>
 
-      <li data-state="renamed">
-        <span>renamed</span>
+      <li data-state="added">
+        <span>added</span>
+
+        <InlineFile file="app/routes/users_+/$username.tsx" />
+      </li>
+
+      <li data-state="deleted">
+        <span>deleted</span>
 
         <InlineFile file="app/routes/users_+/kody.tsx" />
       </li>

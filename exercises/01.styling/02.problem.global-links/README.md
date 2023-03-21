@@ -1,5 +1,23 @@
 # Links for Global CSS
 
+👨‍💼 We've got some one-off styles that we want used across the entire site. But,
+we don't want to have to put that in our `public` directory. So could you load
+the <InlineFile file="app/styles/app.css" /> file in a way to loads it globally,
+allows us to cache it forever, but also allows us to make and deploy changes to
+that file whenever we need? You'll know you got it right when the testimonials
+at the bottom of the homepage have quotes around them (because
+<InlineFile file="app/routes/index.tsx" line="876">the `.quote` class they
+use</InlineFile> is defined in that stylesheet).
+
+🦉 Tip: check the network tab in the dev tools once you've gotten this one done.
+It should show you the file with the "fingerprint" in the URL and you can check
+the cache headers as well. (Those are configured in
+<InlineFile file="server/index.ts" line="19" />).
+
+🦉 Keep in mind, that when you import a css file in remix and get the stylesheet
+URL, it will be a hashed URL. This means that if you change the file, the URL
+will change. This is great for caching and happens automatically.
+
 <TouchedFiles>
   <div id="files">
     <ul>

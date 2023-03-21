@@ -181,6 +181,12 @@ Awesome! You've got the route files made. 🎉
       <li data-state="added">
         <span>added</span>
 
+        <InlineFile file="app/routes/users_+/kody.index.tsx" />
+      </li>
+
+      <li data-state="added">
+        <span>added</span>
+
         <InlineFile file="app/routes/users_+/kody.renter.tsx" />
       </li>
 

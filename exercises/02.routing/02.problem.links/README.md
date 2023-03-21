@@ -28,12 +28,6 @@ updated!
 <TouchedFiles>
   <div id="files">
     <ul>
-      <li data-state="added">
-        <span>added</span>
-
-        <InlineFile file="app/routes/users_+/kody.index.tsx" />
-      </li>
-
       <li data-state="modified">
         <span>modified</span>
 

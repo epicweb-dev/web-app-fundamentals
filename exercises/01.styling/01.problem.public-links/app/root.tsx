@@ -1,7 +1,6 @@
 import { KCDShopIFrameSync } from '@kentcdodds/workshop-app/iframe-sync'
 import {
 	Link,
-	Links,
 	LiveReload,
 	Meta,
 	Outlet,
@@ -15,13 +14,15 @@ import { generateStarsSvg } from './utils/starfield.server'
 // 🐨 export a links function here with a single link that has an href of:
 // '/fonts/nunito-sans/font.css'
 // 🦺 Don't forget to import the type for LinksFunction from '@remix-run/node'
+// 📜 https://remix.run/docs/en/1.14.3/guides/styling
 
 export default function App() {
 	return (
 		<html lang="en" className="h-full">
 			<head>
 				<Meta />
-				<Links />
+				{/* 🐨 Render the <Links /> element here */}
+				{/* 💰 you get the Links component from `@remix-run/react` */}
 			</head>
 			<body className="flex h-full flex-col justify-between bg-night-700 text-white">
 				<header className="container mx-auto py-6">

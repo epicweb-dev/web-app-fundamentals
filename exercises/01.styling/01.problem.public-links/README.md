@@ -1,5 +1,21 @@
 # Links to Public Files
 
+👨‍💼 Don't look now... But our app looks pretty bad! There are no styles applied
+at all! Not even our font is loaded 😬 So, we need you to load that font on
+every page in the application so we can have the font everywhere throughout
+Rocket Rental.
+
+The file is at <InlineFile file="public/fonts/nunito-sans/font.css" /> and our
+server is able to serve it up for you as well. You just need to add the `<link>`
+to the document and the font should load up just fine for you.
+
+> 🦉 Remember, check the `Files` section at the bottom of these instructions for
+> links that will open your editor to the right file you need to alter. My other
+> emoji friends will be waiting there for you to guide you through this task.
+
+🦉 Tip: Check the network tab in the app on the home page. You'll know you got
+it right when you see the `font.css` file loaded.
+
 <TouchedFiles>
   <div id="files">
     <ul>
