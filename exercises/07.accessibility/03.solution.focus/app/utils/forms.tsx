@@ -96,6 +96,7 @@ export function useFocusInvalid(
 					formElement instanceof HTMLElement
 				) {
 					formElement.focus()
+					break
 				}
 			}
 		}

@@ -96,6 +96,7 @@ export function useFocusInvalid(
 					formElement instanceof HTMLElement
 				) {
 					formElement.focus()
+					break
 				}
 			}
 		}
@@ -450,7 +451,7 @@ export function Field({
 	className?: string
 }) {
 	// 🐨 generate a unique id for the field that defaults to the inputProps.id,
-	// then inputProps.name, and finally a useId()
+	// then inputProps.name, and finally a useId() from React
 	return (
 		<div className={clsx(styles.field, className)}>
 			<input

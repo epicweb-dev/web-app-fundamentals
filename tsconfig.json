@@ -119,10 +119,16 @@
       "path": "exercises/06.form-validation/01.solution.form-validation"
     },
     {
-      "path": "exercises/06.form-validation/02.problem.async-form-validation"
+      "path": "exercises/06.form-validation/02.problem.no-validate"
     },
     {
-      "path": "exercises/06.form-validation/02.solution.async-form-validation"
+      "path": "exercises/06.form-validation/02.solution.no-validate"
+    },
+    {
+      "path": "exercises/06.form-validation/03.problem.async-form-validation"
+    },
+    {
+      "path": "exercises/06.form-validation/03.solution.async-form-validation"
     },
     {
       "path": "exercises/07.accessibility/01.problem.labels"

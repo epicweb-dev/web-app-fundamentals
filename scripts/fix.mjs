@@ -34,7 +34,12 @@ const apps = (
 			await readDir(here('../examples'))
 		).map(dir => here(`../examples/${dir}`)),
 		...exercises.flatMap(async exercise => {
-			return (await readDir(here(`../exercises/${exercise}`)))
+			const exerciseDir = here(`../exercises/${exercise}`)
+			// if it is just a file instead of a directory, skip it
+			if (!(await fs.promises.stat(exerciseDir)).isDirectory()) {
+				return []
+			}
+			return (await readDir(exerciseDir))
 				.filter(dir => {
 					return /(problem|solution)/.test(dir)
 				})

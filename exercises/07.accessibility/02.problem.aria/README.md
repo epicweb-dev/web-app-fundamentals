@@ -1,5 +1,21 @@
 # Validation aria attributes
 
+👨‍💼 Remember the first rule of ARIA? Don't use ARIA. If you can use native HTML,
+do it. If you can't, then use ARIA.
+
+That's the case for our error messages. So, we need to add `aria-invalid="true"`
+and `aria-describedby="error-id"` to the input if there is an error. Otherwise,
+those attributes should not appear (so you'll set them to `undefined` in that
+case).
+
+And we do this for more than just the `input`, we'll want this for the `<form>`
+as well.
+
+I suggest you start with <InlineFile file="app/utils/forms.tsx" line="16" /> and
+make the `id` on the `ErrorList` component not optional, then TypeScript will
+help you know the other places you need to go to add the error ID and handle the
+attributes on the form and input elements.
+
 <TouchedFiles>
   <div id="files">
     <ul>

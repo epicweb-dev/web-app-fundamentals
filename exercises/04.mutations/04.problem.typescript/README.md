@@ -9,9 +9,9 @@ We need to make certain that the submitted data is a `string`. When you read a
 value from `formData` (a la `formData.get('field')`), the result could be one of
 three things:
 
-1. `null`: If the value doesn't exist in the form
-2. `string`: If the value is a simple string
-3. `File`: If the value is a file upload
+1.  `null`: If the value doesn't exist in the form
+2.  `string`: If the value is a simple string
+3.  `File`: If the value is a file upload
 
 In this case, if the `name` or `username` are anything but `string`, then we've
 misconfigured our form (or someone is hitting our action URL directly). In

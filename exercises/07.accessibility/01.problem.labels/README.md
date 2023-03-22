@@ -1,5 +1,17 @@
 # Accessibility
 
+👨‍💼 We need to update the accessibility of the `<Field />` component. The current
+implementation is not accessible because the `<label>` and the `<input />` are
+not associated with each other.
+
+Please find Kody in <InlineFile file="app/utils/forms.tsx" line="450" /> and
+make sure the label and input have an association via the `id` and `htmlFor`
+props.
+
+You can test out whether your changes fixed the problem by clicking on the label
+text inside the input. If the input is focused, then you've done it! If not,
+then there's still more work to do.
+
 <TouchedFiles>
   <div id="files">
     <ul>

@@ -31,7 +31,6 @@ function App() {
 🐨 Add three Link elements above the `<Outlet />`. The router in Remix supports
 "relative" links, so you can just pass the route name to the `to` prop. The
 links should go to <LinkToApp to="/users/kody" />,
-
 <LinkToApp to="/users/kody/host" />, and <LinkToApp to="/users/kody/renter" />.
 Because these links will be rendered in the <LinkToApp to="/users/kody" />
 route, you can pass the route name to the `to` prop.

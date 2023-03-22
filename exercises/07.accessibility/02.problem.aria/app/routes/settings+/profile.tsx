@@ -9,7 +9,7 @@ import {
 	useLoaderData,
 	useNavigation,
 } from '@remix-run/react'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import invariant from 'tiny-invariant'
 import { GeneralErrorBoundary } from '~/components/error-boundary'
 import * as createHost from '~/routes/resources+/create-host'
@@ -165,6 +165,12 @@ function usePreviousValue<Value>(value: Value): Value {
 	return ref.current
 }
 
+function useHydrated() {
+	const [hydrated, setHydrated] = useState(false)
+	useEffect(() => setHydrated(true), [])
+	return hydrated
+}
+
 export default function EditUserProfile() {
 	const data = useLoaderData<typeof loader>()
 	const actionData = useActionData<typeof action>()
@@ -174,6 +180,7 @@ export default function EditUserProfile() {
 	const createRenterFetcher = useFetcher<typeof createRenter.action>()
 
 	// 🐨 create a hasFormErrors const here based on whether there are any form errors
+	// 💰 you can determine this based on whether actionData?.status === 'error' and actionData?.errors.formErrors.length > 0
 
 	const fieldErrors =
 		actionData?.status === 'error' ? actionData.errors.fieldErrors : {}
@@ -204,6 +211,8 @@ export default function EditUserProfile() {
 		}
 	}, [isNewRenter])
 
+	const hydrated = useHydrated()
+
 	const createHostFormId = 'create-host-form'
 	const createRenterFormId = 'create-renter-form'
 	return (
@@ -233,6 +242,7 @@ export default function EditUserProfile() {
 				</div>
 				<Form
 					method="post"
+					noValidate={hydrated}
 					// 🐨 set the aria-invalid prop to true if the form has errors (undefined otherwise)
 					// 🐨 set aria-describedby prop to the id of the error message element
 					// at the bottom of the form (it should be undefined if there are no errors)

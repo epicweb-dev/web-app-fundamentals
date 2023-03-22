@@ -9,7 +9,7 @@ import {
 	useLoaderData,
 	useNavigation,
 } from '@remix-run/react'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import invariant from 'tiny-invariant'
 import { GeneralErrorBoundary } from '~/components/error-boundary'
 import * as createHost from '~/routes/resources+/create-host'
@@ -165,6 +165,12 @@ function usePreviousValue<Value>(value: Value): Value {
 	return ref.current
 }
 
+function useHydrated() {
+	const [hydrated, setHydrated] = useState(false)
+	useEffect(() => setHydrated(true), [])
+	return hydrated
+}
+
 export default function EditUserProfile() {
 	const data = useLoaderData<typeof loader>()
 	const actionData = useActionData<typeof action>()
@@ -207,6 +213,7 @@ export default function EditUserProfile() {
 					formElement instanceof HTMLElement
 				) {
 					formElement.focus()
+					break
 				}
 			}
 		}
@@ -234,6 +241,8 @@ export default function EditUserProfile() {
 			renterBioTextareaRef.current.focus()
 		}
 	}, [isNewRenter])
+
+	const hydrated = useHydrated()
 
 	const createHostFormId = 'create-host-form'
 	const createRenterFormId = 'create-renter-form'
@@ -264,6 +273,7 @@ export default function EditUserProfile() {
 				</div>
 				<Form
 					method="post"
+					noValidate={hydrated}
 					aria-invalid={hasFormErrors ? true : undefined}
 					aria-describedby={hasFormErrors ? 'form-errors' : undefined}
 					tabIndex={-1}
@@ -480,8 +490,11 @@ export default function EditUserProfile() {
 						</fieldset>
 					</div>
 
-					{actionData?.status === 'error' && actionData.errors.formErrors ? (
-						<ErrorList id="form-errors" errors={actionData.errors.formErrors} />
+					{hasFormErrors ? (
+						<ErrorList
+							id="form-errors"
+							errors={actionData?.errors.formErrors}
+						/>
 					) : null}
 
 					<div className="mt-3 flex justify-center">
