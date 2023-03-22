@@ -7,7 +7,8 @@ that does not exist, the app crashes. For example, try this one:
 We need to handle this case. That should be a `404` error. So after trying to
 get the `user` from the database, you're going to need to check whether the
 returned `user` exists. If they don't, then you should throw a `404` error.
-Here's an example how you do that:
+We'll get into deeper details about throwing responses later, but for now,
+here's an example how you do that:
 
 ```tsx filename=app/routes/sandwiches.$id.tsx
 export async function loader({ params }) {

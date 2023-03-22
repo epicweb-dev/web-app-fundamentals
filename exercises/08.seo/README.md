@@ -1,3 +1,3 @@
-# SEO Optimization
+# Search Engine Optimization
 
 Meta exports!

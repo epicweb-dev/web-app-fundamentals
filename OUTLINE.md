@@ -50,7 +50,7 @@
 4. Styling
 5. Error Handling
 6. Accessibility
-7. SEO optimization
+7. Search Engine Optimization
 
 ## Scripts
 
