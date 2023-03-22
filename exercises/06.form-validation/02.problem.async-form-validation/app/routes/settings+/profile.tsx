@@ -228,6 +228,8 @@ export default function EditUserProfile() {
 							inputProps={{
 								name: 'username',
 								defaultValue: data.user.username,
+								minLength: 3,
+								required: true,
 							}}
 							errors={fieldErrors.username}
 						/>
@@ -237,6 +239,7 @@ export default function EditUserProfile() {
 							inputProps={{
 								name: 'name',
 								defaultValue: data.user.name ?? '',
+								minLength: 1,
 							}}
 							errors={fieldErrors.name}
 						/>

@@ -214,6 +214,8 @@ export default function EditUserProfile() {
 							inputProps={{
 								name: 'username',
 								defaultValue: data.user.username,
+								// 🐨 add a minLength prop of 3
+								// 🐨 add a required prop of true
 							}}
 							// 🐨 add an errors prop to the Field component
 							// and assign it to the username field errors
@@ -224,6 +226,7 @@ export default function EditUserProfile() {
 							inputProps={{
 								name: 'name',
 								defaultValue: data.user.name ?? '',
+								// 🐨 add a minLength prop of 1
 							}}
 							// 🐨 add an errors prop to the Field component
 							// and assign it to the name field errors

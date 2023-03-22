@@ -1,5 +1,16 @@
 # Async Form Validation
 
+🦉 The trick with async validation in Remix is that the entire action function
+is already async and you have access to all your data. So this actually isn't
+much of an exercise step. What really would be an interesting challenge is doing
+client-side validation without requiring a request to the server or submitting
+the form. But that's a bit out of scope for this workshop, so you'll have to
+come to another workshop to learn that!
+
+👨‍💼 Let's implement the password change functionality. If a new password has been
+submitted, we'll need to validate that the current password is provided and
+correct before making the change.
+
 <TouchedFiles>
   <div id="files">
     <ul>

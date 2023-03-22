@@ -1,5 +1,22 @@
 # Form Validation
 
+👨‍💼 Remember when I joked about being able to trust our users and not needing to
+do validation? Well... Yeah, that was definitely a joke. Let's add validation.
+
+We're going to focus on just the `name` and `username` to start. I need the
+`username` to be `required` and have a minimum character length of 3, and the
+`name` needs a minimum length of 1 (yes, some people have a single-character
+name).
+
+We're already using the `<Field />` component which accepts an `errors` prop
+which it expects to be an array of error messages. That uses another component
+we have called `<ErrorList />` which we will use directly for any `formError`s.
+
+Please add some server-side validation to the `action` function and display any
+errors returned from that in the form.
+
+Your emoji friends will guide you! Thanks!
+
 <TouchedFiles>
   <div id="files">
     <ul>

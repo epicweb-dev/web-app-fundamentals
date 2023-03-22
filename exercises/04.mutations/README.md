@@ -122,7 +122,7 @@ receive the `request` and `params`, and you're expected to return a `Response`
 import { Form, redirect } from '@remix-run/react'
 import { type DataFunctionArgs } from '@remix-run/node'
 
-export const action = async ({ request, params }: DataFunctionArgs) => {
+export async function action({ request, params }: DataFunctionArgs) {
 	const formData = await request.formData()
 	const sandwichType = formData.get('sandwichType')
 
@@ -142,6 +142,12 @@ export default function SandwichChooser() {
 	)
 }
 ```
+
+<callout-info class="aside">
+	`action`s are called for non-GET requests, and `loaders` are called for GET
+	request, so if your form does not specify a method or specifies
+	`method="get"`, then your loader will be called instead of the action.
+</callout-info>
 
 Again, once your form has been submitted, Remix will revalidate all your data so
 you don't have to worry about state management in the client.
