@@ -59,6 +59,14 @@ The links configured above will be rendered in the `<head>` of the HTML document
 that is sent to the browser. Again, you can define any links you like, but we're
 focusing on `stylesheet` links.
 
+It's important for you to know that Remix puts all the responsibility of what
+appears in the document on you. The `app/root.tsx` component you export is
+responsible for everything that appears between `<html>` and `</html>` and that
+includes the `<head>` element which contains the links that routes define. So
+you need to render the
+[`<Links />`](https://remix.run/docs/en/main/components/links) element in that
+component.
+
 Additionally, Remix has a special way to colocate your CSS stylesheets within
 your application allowing you to `import` a `.css` file. We'll explain these
 methods further in the exercise steps, but here are some of the built-in

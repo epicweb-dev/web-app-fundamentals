@@ -1,17 +1,12 @@
 # Routing
 
-We're going to build Kody's user profile pages (Kody is a user in our app and
-his username is "kody"). Users in this app can be either a host, a renter, both,
-or neither. So, we want to have the following routes:
+👨‍💼 We got our first user! His name is "Kody" 🐨 so we're going to build Kody's
+user profile pages (his username is "kody"). Users in this app can be either a
+host, a renter, both, or neither. So, we want to have the following routes:
 
 1.  `/users/kody` - The parent route that has links to the other routes
 2.  `/users/kody/host` - The host's profile page
 3.  `/users/kody/renter` - The renter's profile page
-
-We share a bit of UI between the first route and the other two, but not all of
-it. So we'll also be creating an `index` route for the unique stuff we should
-display when the user is on the `/users/kody` route (as opposed to the
-host/renter sub-routes).
 
 These pages will get more interesting in the future, but for now, let's just
 focus on the routing portion. Your job is to create four route files.
@@ -146,7 +141,12 @@ Let's go ahead and do the same for the renter:
 
 Sweet! You've got nested routing working. 🎉
 
-There's one more route that would be nice to have, and that's the index route.
+When Kody is on `/users/kody`, we definitely want to show his name, but we also
+have a few other things we want to show that we don't want to appear on the
+other routes. So we'll also be creating an `index` route for the unique stuff we
+should display when the user is on the `/users/kody` route (as opposed to the
+host/renter sub-routes).
+
 With the convention, when a route ends with the segment `index` it's treated as
 an index route, so here's what we'll do:
 

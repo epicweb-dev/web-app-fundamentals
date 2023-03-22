@@ -1,15 +1,15 @@
 # Links
 
-Now that we've got route files in place, we'll want a way to link between the
-routes so users can navigate from one route to another. To do this, we'll use
-the `Link` component from `@remix-run/react`.
+👨‍💼 Now that we've got route files in place, we'll want a way to link between the
+routes so users can easily navigate from one route to another. To do this, we'll
+use the `Link` component from `@remix-run/react`.
 
 🐨 Add three Link elements above the `<Outlet />`. The router in Remix supports
 "relative" links, so you can just pass the route name to the `to` prop. The
 links should go to <LinkToApp to="/users/kody" />,
 
-<LinkToApp to="/users/kody/host" />, and <LinkToApp to="/users/kody/renter" />. Because
-these links will be rendered in the <LinkToApp to="/users/kody" />
+<LinkToApp to="/users/kody/host" />, and <LinkToApp to="/users/kody/renter" />.
+Because these links will be rendered in the <LinkToApp to="/users/kody" />
 route, you can pass the route name to the `to` prop.
 
 The `index` route may be tricky because if you try to pass `"index"` to the `to`

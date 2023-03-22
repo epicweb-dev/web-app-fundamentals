@@ -1,6 +1,6 @@
 # Route Params
 
-It wouldn't make much sense if we needed to make a new route for every single
+👨‍💼 It wouldn't make much sense if we needed to make a new route for every single
 user. Instead, we can use a route parameter to capture the username and use it
 in our route handler. We typically call these "params".
 
