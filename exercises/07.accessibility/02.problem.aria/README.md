@@ -8,6 +8,11 @@ and `aria-describedby="error-id"` to the input if there is an error. Otherwise,
 those attributes should not appear (so you'll set them to `undefined` in that
 case).
 
+<callout-info class="aside">
+  Note that there is also `aria-errormessage`, however screen reader support is
+  unfortunately very poor for that attribute. We just need to do the best we can.
+</callout-info>
+
 And we do this for more than just the `input`, we'll want this for the `<form>`
 as well.
 

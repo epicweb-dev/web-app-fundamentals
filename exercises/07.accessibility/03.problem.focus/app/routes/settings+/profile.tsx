@@ -193,7 +193,8 @@ export default function EditUserProfile() {
 	const renterBioTextareaRef = useRef<HTMLTextAreaElement>(null)
 
 	// 🐨 add a useEffect that focuses on the first element in the form that
-	// has an error whenever the actionData changes.
+	// has an error whenever the actionData changes
+	//   (💰 so the dependency array should include the actionData).
 	// 💰 we only care to focus on an element if:
 	// - the formRef.current is truthy
 	// - the actionData has errors

@@ -1,5 +1,9 @@
 # useFocusInvalid
 
+👨‍💼 Well, wouldn't you know, we've already got a hook called `useFocusInvalid`
+which does exactly what your `useEffect` did that you wrote in the last step!
+Let's use that hook instead.
+
 <TouchedFiles>
   <div id="files">
     <ul>
