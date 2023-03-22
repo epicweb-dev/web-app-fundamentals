@@ -36,7 +36,8 @@ export async function loader({ request }: DataFunctionArgs) {
 // const updatedUser = await prisma.user.update({
 // 	select: { username: true },
 // 	where: { id: userId },
-// 	// @ts-expect-error - we'll fix this in the next exercise
+// 	// @ts-expect-error 🦺 we'll fix this in the next exercise!
+// 	// It's important to listen to TypeScript!!
 // 	data: { name, username },
 // })
 

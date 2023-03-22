@@ -24,7 +24,9 @@ export async function loader({ request }: DataFunctionArgs) {
 
 export async function action({ request }: DataFunctionArgs) {
 	const userId = await requireUserId(request)
-	const { name, username } = Object.fromEntries(await request.formData())
+	const formData = await request.formData()
+	const name = formData.get('name')
+	const username = formData.get('username')
 	// 🦉 if the name and username are not strings, then whoever created the form
 	// (us, the developers) did something wrong (like maybe we misspelled the
 	// "name" prop) on the form element. If that's the case, the user can't fix

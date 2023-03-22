@@ -58,6 +58,7 @@ export default function EditUserProfile() {
 					// 🦉 Don't worry, we've got a reusable component for you to use later... For now, <label> and <input> are fine.
 
 					// 💰 You can use the <Button> component from `~/utils/forms` to make the button look nice
+					// the variant prop should be "primary" and the size prop should be "md-wide"
 					// 🐨 Make sure the button's type prop is "submit"
 				*/}
 			</div>

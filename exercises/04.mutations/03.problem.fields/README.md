@@ -1,5 +1,26 @@
 # Fields
 
+👨‍💼 We've got a nice `<Field />` component that I want you to use. It has better
+styles out of the box and also has a nice error message UI which we'll use later
+when we add validation.
+
+Here's a quick example of how to use the `<Field />` component:
+
+```tsx
+<Field
+	// 💰 you can use the className prop to add styles to the field
+	// which we'll do in this exercise, but we don't always need it.
+	// className="whatever-you-like"
+	labelProps={{ children: 'First Name' }}
+	inputProps={{
+		name: 'firstName',
+		defaultValue: 'Peter',
+	}}
+	// 💰 you won't use this prop in this exercise, but we'll add it later...
+	errors={['This field is required']}
+/>
+```
+
 <TouchedFiles>
   <div id="files">
     <ul>

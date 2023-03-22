@@ -24,7 +24,9 @@ export async function loader({ request }: DataFunctionArgs) {
 
 export async function action({ request }: DataFunctionArgs) {
 	const userId = await requireUserId(request)
-	const { name, username } = Object.fromEntries(await request.formData())
+	const formData = await request.formData()
+	const name = formData.get('name')
+	const username = formData.get('username')
 
 	const updatedUser = await prisma.user.update({
 		select: { username: true },
