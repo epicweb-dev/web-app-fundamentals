@@ -20,5 +20,5 @@ export default function EditUserProfile() {
 	// using the `useLoaderData` hook from '@remix-run/react'
 	const data = { todo: 'you need to implement the loader first...' }
 
-	return <pre>{JSON.stringify(data, null, 2)}</pre>
+	return <pre className="ml-20">{JSON.stringify(data, null, 2)}</pre>
 }

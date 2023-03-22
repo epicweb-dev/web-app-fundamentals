@@ -111,8 +111,30 @@ the grandchild etc. So what we need is to have the parent (`/users/kody`) to
 tell Remix where to put the child (`/users/kody/host`). And we do this using the
 `<Outlet />` component.
 
-🐨 So go ahead and open the
+Here's a quick example of how this works:
 
+```tsx filename=app/routes/parent.tsx
+export default function Parent() {
+	return (
+		<div>
+			<h1>Parent</h1>
+			<Outlet />
+		</div>
+	)
+}
+```
+
+```tsx filename=app/routes/parent.child.tsx
+export default function Child() {
+	return <h2>Child</h2>
+}
+```
+
+With that, when you navigate to `/parent/child`, you'll see "Parent" above
+"Child". If we swap the `<h1>` and `<Outlet />` in the parent, then the child
+will be above the parent. The parent gets to decide where it's child goes.
+
+🐨 So go ahead and open the
 <InlineFile file="app/routes/users_+/kody.tsx" line={4} column={99} /> file and
 get the `<Outlet />` component from `@remix-run/react`, then render it below the
 `<h1>` we put in there earlier.

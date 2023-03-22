@@ -12,7 +12,7 @@ Because we don't want to load this CSS file on every page, and we also don't
 want to have to list every component-level CSS file in our root route, we're
 going to use yet another built-in feature of Remix that allows us to tell Remix
 where to put global styles we import. In Remix, this is called 📜
-["CSS Bundling"](https://remix.run/docs/en/main/guides/styling#md-css-bundling).
+["CSS Bundling"](https://remix.run/docs/en/1.14.3/guides/styling#md-css-bundling).
 
 We already have `@remix-run/css-bundle` installed, so all that's left is to
 `import` it, and list it in the links of our <InlineFile file="app/root.tsx" />.

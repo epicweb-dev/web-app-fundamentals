@@ -4,6 +4,30 @@
 routes so users can easily navigate from one route to another. To do this, we'll
 use the `Link` component from `@remix-run/react`.
 
+Here's a quick example of the `Link` component in action:
+
+```tsx
+import { Link } from '@remix-run/react'
+
+function App() {
+	return (
+		<div>
+			<h1>My App</h1>
+			<nav>
+				<ul>
+					<li>
+						<Link to=".">Home</Link>
+					</li>
+					<li>
+						<Link to="about">About</Link>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	)
+}
+```
+
 🐨 Add three Link elements above the `<Outlet />`. The router in Remix supports
 "relative" links, so you can just pass the route name to the `to` prop. The
 links should go to <LinkToApp to="/users/kody" />,

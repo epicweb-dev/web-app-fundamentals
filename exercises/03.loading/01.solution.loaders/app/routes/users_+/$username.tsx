@@ -10,7 +10,8 @@ export async function loader({ request, params }: DataFunctionArgs) {
 	})
 
 	return json({
-		isSelf: user?.id === loggedInUserId,
+		// @ts-expect-error we'll fix this in the next exercise
+		isSelf: user.id === loggedInUserId,
 	})
 }
 

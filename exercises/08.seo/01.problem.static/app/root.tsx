@@ -11,7 +11,6 @@ import {
 	Link,
 	Links,
 	LiveReload,
-	Meta,
 	Outlet,
 	Scripts,
 	ScrollRestoration,
@@ -66,7 +65,7 @@ export default function App() {
 	return (
 		<html lang="en" className="h-full">
 			<head>
-				<Meta />
+				{/* 🐨 render the <Meta /> component (from @remix-run/react) here */}
 				<Links />
 			</head>
 			<body className="flex h-full flex-col justify-between bg-night-700 text-white">

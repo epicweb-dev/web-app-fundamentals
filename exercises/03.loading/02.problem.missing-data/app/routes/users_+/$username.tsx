@@ -22,9 +22,9 @@ export async function loader({ request, params }: DataFunctionArgs) {
 	// 🦉 we'll handle this error in a later exercise.
 
 	return json({
-		// 🐨 you can now remove the optional chain (the ? mark here) because the
-		// user will always be defined now
-		isSelf: user?.id === loggedInUserId,
+		// 🦺 See! I told you that you should always listen to TypeScript!
+		// @ts-expect-error 💣 remove this comment line
+		isSelf: user.id === loggedInUserId,
 	})
 }
 

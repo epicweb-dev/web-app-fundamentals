@@ -23,7 +23,7 @@
   "author": "Kent C. Dodds <me@kentcdodds.com> (https://kentcdodds.com/)",
   "license": "GPL-3.0-only",
   "dependencies": {
-    "@kentcdodds/workshop-app": "^1.22.4",
+    "@kentcdodds/workshop-app": "^1.22.6",
     "@prisma/client": "^4.11.0",
     "prisma": "^4.11.0"
   },

@@ -64,7 +64,7 @@ appears in the document on you. The `app/root.tsx` component you export is
 responsible for everything that appears between `<html>` and `</html>` and that
 includes the `<head>` element which contains the links that routes define. So
 you need to render the
-[`<Links />`](https://remix.run/docs/en/main/components/links) element in that
+[`<Links />`](https://remix.run/docs/en/1.14.3/components/links) element in that
 component.
 
 Additionally, Remix has a special way to colocate your CSS stylesheets within

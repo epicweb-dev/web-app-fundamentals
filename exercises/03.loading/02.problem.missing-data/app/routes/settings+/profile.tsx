@@ -31,8 +31,9 @@ export default function EditUserProfile() {
 	return (
 		<div className="container m-auto mt-16 mb-36 max-w-3xl">
 			<div className="flex gap-3">
-				{/* 🐨 you can remove the optional chaning on data.user?. because the user will always be defined now */}
-				<Link className="text-night-300" to={`/users/${data.user?.username}`}>
+				{/* 🦺 Huzzah! Listening to TypeScript is good for the soul */}
+				{/* @ts-expect-error 💣 delete this comment now that you've fixed the loader */}
+				<Link className="text-night-300" to={`/users/${data.user.username}`}>
 					Profile
 				</Link>
 				<span className="text-night-300">▶️</span>
@@ -42,8 +43,9 @@ export default function EditUserProfile() {
 				<div className="flex justify-center">
 					<div className="relative h-52 w-52">
 						<img
-							// 🐨 you can remove the optional chaning on data.user?. here too
-							src={getUserImgSrc(data.user?.imageId)}
+							// 🦺 Yippee!
+							// @ts-expect-error 💣 delete this comment now that you've fixed the loader
+							src={getUserImgSrc(data.user.imageId)}
 							alt={data.user?.username}
 							className="h-full w-full rounded-full object-cover"
 						/>

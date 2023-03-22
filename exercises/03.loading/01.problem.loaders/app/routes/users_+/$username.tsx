@@ -16,14 +16,19 @@ import { Outlet } from '@remix-run/react'
 // 🐨 compare the userId from the request to the user.id from the database
 // and return a json response with {isSelf: true} or {isSelf: false}
 
+// 🦺 you'll likely get a TypeScript error when trying to access user.id
+// For now, just ignore it or add a `@ts-expect-error` comment above it.
+// Normally, you should listen to TypeScript, but we're going to fix this in the
+// next step.
+
 export default function UserRoute() {
 	// 🐨 instead of this hard-coded object, we can get the data from the loader
 	// using the `useLoaderData` hook from '@remix-run/react'
-	const data = { todo: 'you need to do this' }
+	const data = { todo: 'you need to do this part' }
 
 	return (
 		<div className="mt-36 mb-48">
-			<pre>{JSON.stringify(data, null, 2)}</pre>
+			<pre className="mb-40 ml-20">{JSON.stringify(data, null, 2)}</pre>
 			<Outlet />
 		</div>
 	)

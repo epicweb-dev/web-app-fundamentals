@@ -16,8 +16,18 @@ With the file-based route convention we're using, we define params by using a
 So in this exercise, let's rename our files to use the `$username` param and
 instead of rendering "Kody" we can render the username from params.
 
-💰 You can get the param value from `useParams()` which you can `import` from
-`@remix-run/react`.
+💰 You can get the param value from
+[`useParams()`](https://remix.run/docs/en/1.14.3/hooks/use-params) which you can
+`import` from `@remix-run/react`. For example:
+
+```tsx filename=app/routes/pets.$petName.tsx
+import { useParams } from '@remix-run/react'
+
+export function PetRoute() {
+	const params = useParams()
+	return <h1>Hello {params.petName}</h1>
+}
+```
 
 Once you've finished with that, you should be able to go to any username and it
 will display that username. Here are some to try:

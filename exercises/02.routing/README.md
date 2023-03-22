@@ -84,7 +84,10 @@ what allows GitHub to load a specific repository when you visit
 `https://github.com/epicweb-dev/web-app-fundamentals` for example. Route params
 are often represented by a `:` in the URL, for example:
 `https://github.com/:username/:repo`. This tells the router that the `username`
-and `repo` segments are params, and that they can be any value. ## In Remix
+and `repo` segments are params, and that they can be any value.
+
+## In Remix
+
 Remix has a built-in router that enables you to easily map URLs and route
 parameters to files in your application's `app/routes` directory. Thanks to the
 file system convention from Remix, we don't have to spend any time configuring
@@ -165,14 +168,14 @@ We'll be exploring how to create these relationships in the exercise.
 ### Navigation
 
 To facilitate navigation, Remix provides
-[a `<Link>` component](https://remix.run/docs/en/main/components/link) that you
-can use to create links (`<a>`) to other pages in your application without
+[a `<Link>` component](https://remix.run/docs/en/1.14.3/components/link) that
+you can use to create links (`<a>`) to other pages in your application without
 triggering a full-page refresh (which is what clicking a regular `<a>` will do).
 This is a nice performance optimization and it also has better accessibility
 characteristics and gives a better user experience.
 
 Remix also has a built-in
-[`<Form>`](https://remix.run/docs/en/main/components/form) component which
+[`<Form>`](https://remix.run/docs/en/1.14.3/components/form) component which
 improves upon the browser's handling of forms. We'll dive deeper into that in a
 future exercise.
 
@@ -197,7 +200,3 @@ open in another tab to reference.
 At any time, remember if you get lost, you can run `npx remix routes` in the
 project directory to check the generated routes configuration based on your file
 system.
-
-```
-
-```
