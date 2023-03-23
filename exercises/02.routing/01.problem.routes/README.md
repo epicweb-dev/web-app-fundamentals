@@ -36,17 +36,12 @@ start that component out by returning a with a title like this:
 star field and Rocket Rental logo are on the page as well, even though you
 didn't render those yourself. That's because you're actually **already using
 nested routing!** The route you just created is nested inside
-
 <InlineFile file="app/root.tsx" line="89" />!
 
 Now, let's create the host route. 🐨 First,
-
-<InlineFile file="app/routes/users_+/kody.host.tsx">
-	create
-	<code>app/routes/users\_+/kody.host.tsx</code>
-</InlineFile>
-
-, and then stick this in it:
+<InlineFile file="app/routes/users_+/kody.host.tsx">create
+<code>app/routes/users\_+/kody.host.tsx</code></InlineFile>, and then stick this
+in it:
 
 ```tsx
 export default function KodyHost() {

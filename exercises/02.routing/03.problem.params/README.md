@@ -23,7 +23,7 @@ instead of rendering "Kody" we can render the username from params.
 ```tsx filename=app/routes/pets.$petName.tsx
 import { useParams } from '@remix-run/react'
 
-export function PetRoute() {
+export default function PetRoute() {
 	const params = useParams()
 	return <h1>Hello {params.petName}</h1>
 }
