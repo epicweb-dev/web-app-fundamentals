@@ -27,7 +27,9 @@ exception to this rule. His username is `kody` and his password is
 We're going to let you focus on the data loading, so in the next step, the UI
 will be created for you. Just get that data in the UI and we'll handle the rest.
 
-Your emoji friends will be in there to give you a hand, so get started!
+Your emoji friends will be in there to give you a hand, so get started! (Don't
+forget you can click the "Files" at the bottom of these instructions to see the
+list of files you'll be working in).
 
 <TouchedFiles>
   <div id="files">

@@ -122,3 +122,9 @@ export default function MyRoute() {
 	)
 }
 ```
+
+Finally, you can control the `headers` with remix's `json` utility by passing a
+second argument to `json` which allows you to set things like cache headers for
+example. And of course, if you want full control you can always create the
+response object yourself instead of using the utility. Remix exposes the full
+web platform to you.

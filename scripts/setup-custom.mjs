@@ -90,3 +90,16 @@ if (playwrightResult.exitCode === 0) {
 	console.log(playwrightResult.all)
 	throw new Error('❌  playwright install failed')
 }
+
+console.log(
+	`🛠  Building every app. This may take quite a while. It's the last step though!`,
+)
+const buildResult = await $({
+	all: true,
+})`npm run build --workspaces --if-present`
+if (buildResult.exitCode === 0) {
+	console.log('✅  All apps built')
+} else {
+	console.log(buildResult.all)
+	throw new Error('❌  Building apps failed')
+}
