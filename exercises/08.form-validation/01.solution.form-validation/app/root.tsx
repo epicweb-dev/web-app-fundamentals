@@ -3,6 +3,7 @@ import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import { cssBundleHref } from '@remix-run/css-bundle'
 import {
 	json,
+	type V2_MetaFunction,
 	type DataFunctionArgs,
 	type LinksFunction,
 } from '@remix-run/node'
@@ -54,6 +55,15 @@ export async function loader({ request }: DataFunctionArgs) {
 	}
 
 	return json({ user, ENV: getEnv() })
+}
+
+export const meta: V2_MetaFunction = () => {
+	return [
+		{ title: 'Rocket Rental' },
+		{ charSet: 'utf-8' },
+		{ name: 'viewport', content: 'width=device-width,initial-scale=1' },
+		{ name: 'description', content: 'Find yourself in outer space' },
+	]
 }
 
 export default function App() {
