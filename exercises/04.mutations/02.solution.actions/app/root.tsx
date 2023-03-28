@@ -11,10 +11,7 @@ import {
 	Link,
 	Links,
 	LiveReload,
-	Meta,
 	Outlet,
-	Scripts,
-	ScrollRestoration,
 	useLoaderData,
 	useSubmit,
 } from '@remix-run/react'
@@ -23,7 +20,6 @@ import appStylesheetUrl from './styles/app.css'
 import tailwindStylesheetUrl from './styles/tailwind.css'
 import { authenticator } from './utils/auth.server'
 import { prisma } from './utils/db.server'
-import { getEnv } from './utils/env.server'
 import { ButtonLink } from './utils/forms'
 import { getUserImgSrc, typedBoolean, useUser } from './utils/misc'
 import { generateStarsSvg } from './utils/starfield.server'
@@ -53,7 +49,7 @@ export async function loader({ request }: DataFunctionArgs) {
 		await authenticator.logout(request, { redirectTo: '/' })
 	}
 
-	return json({ user, ENV: getEnv() })
+	return json({ user })
 }
 
 export default function App() {
@@ -62,7 +58,6 @@ export default function App() {
 	return (
 		<html lang="en" className="h-full">
 			<head>
-				<Meta />
 				<Links />
 			</head>
 			<body className="flex h-full flex-col justify-between bg-night-700 text-white">
@@ -96,13 +91,6 @@ export default function App() {
 					</Link>
 				</div>
 				<div className="h-5" />
-				<ScrollRestoration />
-				<Scripts />
-				<script
-					dangerouslySetInnerHTML={{
-						__html: `window.ENV = ${JSON.stringify(data.ENV)}`,
-					}}
-				/>
 				<LiveReload />
 				<KCDShopIFrameSync />
 				<NoHydrate className="fixed inset-0 -z-10" getHTML={generateStarsSvg} />

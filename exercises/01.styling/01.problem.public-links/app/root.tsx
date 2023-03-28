@@ -1,12 +1,5 @@
 import { KCDShopIFrameSync } from '@kentcdodds/workshop-app/iframe-sync'
-import {
-	Link,
-	LiveReload,
-	Meta,
-	Outlet,
-	Scripts,
-	ScrollRestoration,
-} from '@remix-run/react'
+import { Link, LiveReload, Outlet } from '@remix-run/react'
 import { useId, useState } from 'react'
 import { ButtonLink } from './utils/forms'
 import { generateStarsSvg } from './utils/starfield.server'
@@ -20,7 +13,6 @@ export default function App() {
 	return (
 		<html lang="en" className="h-full">
 			<head>
-				<Meta />
 				{/* 🐨 Render the <Links /> element here */}
 				{/* 💰 you get the Links component from `@remix-run/react` */}
 			</head>
@@ -51,8 +43,6 @@ export default function App() {
 					</Link>
 				</div>
 				<div className="h-5" />
-				<ScrollRestoration />
-				<Scripts />
 				<LiveReload />
 				<KCDShopIFrameSync />
 				<NoHydrate className="fixed inset-0 -z-10" getHTML={generateStarsSvg} />

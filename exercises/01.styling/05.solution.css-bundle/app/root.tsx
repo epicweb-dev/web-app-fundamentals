@@ -5,10 +5,8 @@ import {
 	Link,
 	Links,
 	LiveReload,
-	Meta,
 	Outlet,
-	Scripts,
-	ScrollRestoration,
+	,
 } from '@remix-run/react'
 import { useId, useState } from 'react'
 import appStylesheetUrl from './styles/app.css'
@@ -30,7 +28,6 @@ export default function App() {
 	return (
 		<html lang="en" className="h-full">
 			<head>
-				<Meta />
 				<Links />
 			</head>
 			<body className="flex h-full flex-col justify-between bg-night-700 text-white">
@@ -60,8 +57,6 @@ export default function App() {
 					</Link>
 				</div>
 				<div className="h-5" />
-				<ScrollRestoration />
-				<Scripts />
 				<LiveReload />
 				<KCDShopIFrameSync />
 				<NoHydrate className="fixed inset-0 -z-10" getHTML={generateStarsSvg} />
