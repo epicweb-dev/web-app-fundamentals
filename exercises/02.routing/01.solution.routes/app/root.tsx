@@ -143,7 +143,6 @@ function UserDropdown() {
 				>
 					<DropdownMenu.Item asChild>
 						<Link
-							prefetch="intent"
 							to={`/users/${user.username}`}
 							className="rounded-t-3xl py-5 px-7 outline-none hover:bg-night-500 radix-highlighted:bg-night-500"
 						>
@@ -152,7 +151,6 @@ function UserDropdown() {
 					</DropdownMenu.Item>
 					<DropdownMenu.Item asChild>
 						<Link
-							prefetch="intent"
 							to="/favorites"
 							className="py-5 px-7 outline-none hover:bg-night-500 radix-highlighted:bg-night-500"
 						>
@@ -161,7 +159,6 @@ function UserDropdown() {
 					</DropdownMenu.Item>
 					<DropdownMenu.Item asChild>
 						<Link
-							prefetch="intent"
 							to="/bookings"
 							className="py-5 px-7 outline-none hover:bg-night-500 radix-highlighted:bg-night-500"
 						>

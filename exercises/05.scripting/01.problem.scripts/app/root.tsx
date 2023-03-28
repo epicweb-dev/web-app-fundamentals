@@ -3,7 +3,6 @@ import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import { cssBundleHref } from '@remix-run/css-bundle'
 import {
 	json,
-	type V2_MetaFunction,
 	type DataFunctionArgs,
 	type LinksFunction,
 } from '@remix-run/node'
@@ -12,7 +11,6 @@ import {
 	Link,
 	Links,
 	LiveReload,
-	Meta,
 	Outlet,
 	useLoaderData,
 	useSubmit,
@@ -33,15 +31,6 @@ export const links: LinksFunction = () => {
 		cssBundleHref ? { rel: 'stylesheet', href: cssBundleHref } : null,
 		{ rel: 'stylesheet', href: appStylesheetUrl },
 	].filter(typedBoolean)
-}
-
-export const meta: V2_MetaFunction = () => {
-	return [
-		{ title: 'Rocket Rental' },
-		{ charSet: 'utf-8' },
-		{ name: 'viewport', content: 'width=device-width,initial-scale=1' },
-		{ name: 'description', content: 'Find yourself in outer space' },
-	]
 }
 
 export async function loader({ request }: DataFunctionArgs) {
@@ -69,7 +58,6 @@ export default function App() {
 	return (
 		<html lang="en" className="h-full">
 			<head>
-				<Meta />
 				<Links />
 			</head>
 			<body className="flex h-full flex-col justify-between bg-night-700 text-white">
@@ -103,6 +91,7 @@ export default function App() {
 					</Link>
 				</div>
 				<div className="h-5" />
+				{/* 🐨 Add the <Scripts /> element here */}
 				<LiveReload />
 				<KCDShopIFrameSync />
 				<NoHydrate className="fixed inset-0 -z-10" getHTML={generateStarsSvg} />
@@ -155,7 +144,6 @@ function UserDropdown() {
 				>
 					<DropdownMenu.Item asChild>
 						<Link
-							prefetch="intent"
 							to={`/users/${user.username}`}
 							className="rounded-t-3xl py-5 px-7 outline-none hover:bg-night-500 radix-highlighted:bg-night-500"
 						>
@@ -164,7 +152,6 @@ function UserDropdown() {
 					</DropdownMenu.Item>
 					<DropdownMenu.Item asChild>
 						<Link
-							prefetch="intent"
 							to="/favorites"
 							className="py-5 px-7 outline-none hover:bg-night-500 radix-highlighted:bg-night-500"
 						>
@@ -173,7 +160,6 @@ function UserDropdown() {
 					</DropdownMenu.Item>
 					<DropdownMenu.Item asChild>
 						<Link
-							prefetch="intent"
 							to="/bookings"
 							className="py-5 px-7 outline-none hover:bg-night-500 radix-highlighted:bg-night-500"
 						>

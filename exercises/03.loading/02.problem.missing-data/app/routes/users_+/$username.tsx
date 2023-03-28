@@ -48,8 +48,6 @@ export default function UserRoute() {
 						) : null}
 						<div className="flex justify-between rounded-full border border-night-400 bg-night-700">
 							<NavLink
-								preventScrollReset
-								prefetch="intent"
 								to="host"
 								className={({ isActive }) =>
 									clsx('rounded-full py-3 px-12 leading-3', {
@@ -61,8 +59,6 @@ export default function UserRoute() {
 								Host
 							</NavLink>
 							<NavLink
-								preventScrollReset
-								prefetch="intent"
 								to="renter"
 								className={({ isActive }) =>
 									clsx('rounded-full py-3 px-12 leading-3', {
