@@ -34,7 +34,7 @@
     "insertPragma": false,
     "jsxSingleQuote": false,
     "printWidth": 80,
-    "proseWrap": "always",
+    "proseWrap": "preserve",
     "quoteProps": "as-needed",
     "requirePragma": false,
     "semi": false,
