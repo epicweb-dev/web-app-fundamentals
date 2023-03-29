@@ -96,6 +96,8 @@ export default function App() {
 				<div className="h-5" />
 				<ScrollRestoration />
 				{/* 🐨 add a custom script tag here that sets window.ENV to the value of data.ENV */}
+				{/* 💰 Don't forget with inline scripts in react, you need to use dangerouslySetInnerHTML */}
+				{/* 💰 `window.ENV = ${JSON.stringify(data.ENV)}` */}
 				<Scripts />
 				<LiveReload />
 				<KCDShopIFrameSync />

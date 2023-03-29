@@ -1,1 +1,37 @@
 # Scroll Restoration
+
+👨‍💼 Now that we've got JavaScript running on the page, our customers are noticing
+that their scroll position is not where they expect it to be. For example, if
+you're on your profile page and you scroll down (on a short screen) before
+clicking the "edit" link, it will not scroll to the top of the page when you
+arrive on the profile edit page. This is because the browser is no longer
+responsible for navigations, so the role of scroll restoration lies in our
+hands!
+
+Luckily, Remix has a
+[📜 `ScrollRestoration`](https://remix.run/docs/en/main/components/scroll-restoration)
+component we can use to fix this. Please use that component!
+
+Once you've done that, come back here, I've got another task for you.
+
+You got it done? Ok, great! Now I actually need you to "undo" the scroll
+restoration for a particular navigation. For a user who is both a host and a
+renter, we show a "switch" button to allow you to switch between their host and
+renter profiles. To test this out, remember, we have a
+
+<LinkToApp to="/admin/users/list" /> page when you can see the users in the app and
+find a user that's both a host and a renter so you can try out what I'm talking about.
+
+When clicking on that switch, it feels awkward to scroll to the top of the page.
+Luckily, Remix allows you to control this scroll restoration behavior on a
+per-link basis using the
+[📜 `preventScrollReset`](https://reactrouter.com/en/main/components/link#preventscrollreset)
+prop (through React Router):
+
+```tsx
+<Link preventScrollReset to="host">
+	Host
+</Link>
+```
+
+Go ahead and add the `preventScrollReset` prop to both of those links.

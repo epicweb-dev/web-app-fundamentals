@@ -4,12 +4,21 @@
 after they submit their profile form, it can take a while before there are any
 updates and they're not sure whether they did something wrong.
 
+This is one of the things the browser did for us before we brought JavaScript
+along for the party. Once we brought JavaScript along, we started doing
+`event.preventDefault()` which removed the full-page refresh, but also removed
+the pending UI feedback the browser shows for us. We need to add that back.
+
 Could you give them some feedback while they're waiting for the server to
-respond?
+respond? Our `<Button>` component has a `status="pending"` prop you can use for
+this. We'll also want to disable the button when the form is submitting.
 
 Remix allows you to give the user an even better experience by showing "pending
 UI" using
 [the `useNavigation` hook](https://remix.run/docs/en/main/hooks/use-navigation).
+Only one transition can be happening at a time in the web (you can't go to two
+places at once) so that's true here as well. This means you'll need to use the
+information from the navigation to determine if the form is submitting or not.
 
 Here's an over-the-top example of `useNavigation` that should help you get a
 sense of the information you can get from the `navigation` object (as well as
