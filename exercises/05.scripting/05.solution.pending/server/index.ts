@@ -3,6 +3,7 @@ import express from 'express'
 import compression from 'compression'
 import morgan from 'morgan'
 import { createRequestHandler } from '@remix-run/express'
+import { type ServerBuild } from '@remix-run/node'
 
 const BUILD_DIR = path.join(process.cwd(), 'build')
 
@@ -32,13 +33,23 @@ app.use(morgan('tiny'))
 app.all(
 	'*',
 	process.env.NODE_ENV === 'development'
-		? (req, res, next) => {
+		? async (req, res, next) => {
 				purgeRequireCache()
 
-				return createRequestHandler({
-					build: require(BUILD_DIR),
-					mode: process.env.NODE_ENV,
-				})(req, res, next)
+				try {
+					const build = await getBuild()
+
+					return createRequestHandler({
+						build,
+						mode: process.env.NODE_ENV,
+					})(req, res, next)
+				} catch (error: unknown) {
+					const message =
+						error && typeof error === 'object' && 'message' in error
+							? error.message
+							: String(error)
+					return res.status(500).send(message)
+				}
 		  }
 		: createRequestHandler({
 				build: require(BUILD_DIR),
@@ -62,4 +73,27 @@ function purgeRequireCache() {
 			delete require.cache[key]
 		}
 	}
+}
+
+// wait for the build directory to exist before trying to require it
+// this is necessary because the build directory is created by the
+// build process, which is started by the dev process
+async function getBuild(): Promise<ServerBuild> {
+	let start = Date.now()
+	while (Date.now() - start < 10000) {
+		try {
+			return require(BUILD_DIR)
+		} catch (error: unknown) {
+			if (
+				error &&
+				typeof error === 'object' &&
+				'code' in error &&
+				error.code !== 'MODULE_NOT_FOUND'
+			) {
+				throw error
+			}
+		}
+		await new Promise(resolve => setTimeout(resolve, 100))
+	}
+	throw new Error(`Could not find build directory at ${BUILD_DIR}`)
 }
