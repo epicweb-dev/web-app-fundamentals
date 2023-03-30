@@ -13,7 +13,7 @@
     "test": "node ./scripts/test.mjs",
     "setup": "node ./setup.mjs",
     "setup:custom": "node ./scripts/setup-custom.mjs",
-    "prisma:generate": "prisma generate --schema exercises/08.seo/03.solution.errors/prisma/schema.prisma",
+    "prisma:generate": "prisma generate --schema exercises/09.accessibility/04.solution.use-focus-invalid/prisma/schema.prisma",
     "lint": "npm run lint --if-present --workspaces",
     "format": "prettier --write .",
     "typecheck": "tsc -b",
