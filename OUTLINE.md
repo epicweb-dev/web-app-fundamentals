@@ -31,26 +31,30 @@
 
 ## Schedule
 
+### Part 1
+
 - 😴 Logistics
-- 💪 Exercise 1
-- 💪 Exercise 2
+- 💪 Styling
 - 😴 10 Minutes
-- 💪 Exercise 3
-- 💪 Exercise 4
+- 💪 Routing
+- 💪 Data Loading
 - 🌮 60 Minutes
-- 💪 Exercise 5
-- 💪 Exercise 6
+- 💪 Data Mutations
 - 😴 10 Minutes
-- 💪 Exercise 7
+- 💪 Scripting
 - 😴 10 Minutes
 
-1. Data loading
-2. Data mutations
-3. Nested routing
-4. Styling
-5. Error Handling
-6. Accessibility
-7. Search Engine Optimization
+### Part 2
+
+- 😴 Logistics
+- 💪 Search Engine Optimization
+- 😴 10 Minutes
+- 💪 Error Handling
+- 🌮 60 Minutes
+- 💪 Form Validation
+- 😴 10 Minutes
+- 💪 Accessibility
+- 😴 10 Minutes
 
 ## Scripts
 
