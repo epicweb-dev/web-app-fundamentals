@@ -1,12 +1,6 @@
 import { KCDShopIFrameSync } from '@kentcdodds/workshop-app/iframe-sync'
 import { type LinksFunction } from '@remix-run/node'
-import {
-	Link,
-	Links,
-	LiveReload,
-	Outlet,
-	,
-} from '@remix-run/react'
+import { Link, Links, LiveReload, Outlet } from '@remix-run/react'
 import { useId, useState } from 'react'
 import appStylesheetUrl from './styles/app.css'
 import tailwindStylesheetUrl from './styles/tailwind.css'
