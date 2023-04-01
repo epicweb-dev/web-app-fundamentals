@@ -16,7 +16,7 @@ export default function App() {
 				{/* 🐨 Render the <Links /> element here */}
 				{/* 💰 you get the Links component from `@remix-run/react` */}
 			</head>
-			<body className="flex h-full flex-col justify-between bg-night-700 text-white">
+			<body className="flex h-full flex-col justify-between bg-night-700 text-white scrollbar-thin scrollbar-thumb-gray-300">
 				<header className="container mx-auto py-6">
 					<nav className="flex justify-between">
 						<Link to="/">

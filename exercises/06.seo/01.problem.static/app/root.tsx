@@ -68,7 +68,7 @@ export default function App() {
 				{/* 🐨 render the <Meta /> component (from @remix-run/react) here */}
 				<Links />
 			</head>
-			<body className="flex h-full flex-col justify-between bg-night-700 text-white">
+			<body className="flex h-full flex-col justify-between bg-night-700 text-white scrollbar-thin scrollbar-thumb-gray-300">
 				<header className="container mx-auto py-6">
 					<nav className="flex justify-between">
 						<Link to="/">
@@ -138,7 +138,7 @@ function UserDropdown() {
 					to={`/users/${user.username}`}
 					// this is for progressive enhancement
 					onClick={e => e.preventDefault()}
-					className="flex items-center gap-2 rounded-full bg-night-500 py-2 pl-2 pr-4 outline-none hover:bg-night-400 focus:bg-night-400 radix-state-open:bg-night-400"
+					className="flex items-center gap-2 rounded-full bg-night-500 py-2 pl-2 pr-4 outline-none focus:bg-night-400 radix-state-open:bg-night-400 hover:bg-night-400"
 				>
 					<img
 						className="h-8 w-8 rounded-full object-cover"
@@ -160,7 +160,7 @@ function UserDropdown() {
 						<Link
 							prefetch="intent"
 							to={`/users/${user.username}`}
-							className="rounded-t-3xl py-5 px-7 outline-none hover:bg-night-500 radix-highlighted:bg-night-500"
+							className="rounded-t-3xl py-5 px-7 outline-none radix-highlighted:bg-night-500 hover:bg-night-500"
 						>
 							👤 Profile
 						</Link>
@@ -169,7 +169,7 @@ function UserDropdown() {
 						<Link
 							prefetch="intent"
 							to="/favorites"
-							className="py-5 px-7 outline-none hover:bg-night-500 radix-highlighted:bg-night-500"
+							className="py-5 px-7 outline-none radix-highlighted:bg-night-500 hover:bg-night-500"
 						>
 							🔖 Favorites
 						</Link>
@@ -178,7 +178,7 @@ function UserDropdown() {
 						<Link
 							prefetch="intent"
 							to="/bookings"
-							className="py-5 px-7 outline-none hover:bg-night-500 radix-highlighted:bg-night-500"
+							className="py-5 px-7 outline-none radix-highlighted:bg-night-500 hover:bg-night-500"
 						>
 							🚀 Bookings
 						</Link>

@@ -26,7 +26,7 @@ export default function App() {
 			<head>
 				<Links />
 			</head>
-			<body className="flex h-full flex-col justify-between bg-night-700 text-white">
+			<body className="flex h-full flex-col justify-between bg-night-700 text-white scrollbar-thin scrollbar-thumb-gray-300">
 				<header className="container mx-auto py-6">
 					<nav className="flex justify-between">
 						<Link to="/">
