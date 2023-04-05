@@ -1,11 +1,16 @@
-import { json, redirect, type DataFunctionArgs } from '@remix-run/node'
+import {
+	json,
+	redirect,
+	type DataFunctionArgs,
+	type V2_MetaFunction,
+} from '@remix-run/node'
 import { Form, Link, useLoaderData } from '@remix-run/react'
 import invariant from 'tiny-invariant'
 import { GeneralErrorBoundary } from '~/components/error-boundary'
 import { Spacer } from '~/components/spacer'
 import { prisma } from '~/utils/db.server'
 import { Button } from '~/utils/forms'
-import { getUserImgSrc, mergeMeta, useOptionalUser } from '~/utils/misc'
+import { getUserImgSrc, useOptionalUser } from '~/utils/misc'
 
 export async function loader({ params }: DataFunctionArgs) {
 	invariant(params.username, 'Missing username')
@@ -52,7 +57,7 @@ export default function UsernameIndex() {
 				<>
 					<Link
 						to="/settings/profile"
-						className="rounded-full border border-night-400 py-5 px-10"
+						className="rounded-full border border-night-400 px-10 py-5"
 					>
 						✏️ Create your profile
 					</Link>
@@ -72,7 +77,7 @@ export default function UsernameIndex() {
 	)
 }
 
-export const meta = mergeMeta(({ data, params }) => {
+export const meta: V2_MetaFunction<typeof loader> = ({ data, params }) => {
 	const displayName = data?.user.name ?? params.username
 	return [
 		{ title: `${displayName} | Rocket Rental` },
@@ -81,7 +86,7 @@ export const meta = mergeMeta(({ data, params }) => {
 			content: `${displayName} on Rocket Rental is not a host or renter yet.`,
 		},
 	]
-})
+}
 
 export function ErrorBoundary() {
 	return (

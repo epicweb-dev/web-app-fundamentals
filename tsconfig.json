@@ -125,22 +125,22 @@
       "path": "exercises/06.seo/01.solution.static"
     },
     {
-      "path": "exercises/06.seo/02.problem.dynamic"
+      "path": "exercises/06.seo/02.problem.nested"
     },
     {
-      "path": "exercises/06.seo/02.solution.dynamic"
+      "path": "exercises/06.seo/02.solution.nested"
     },
     {
-      "path": "exercises/06.seo/03.problem.errors"
+      "path": "exercises/06.seo/03.problem.dynamic"
     },
     {
-      "path": "exercises/06.seo/03.solution.errors"
+      "path": "exercises/06.seo/03.solution.dynamic"
     },
     {
-      "path": "exercises/06.seo/04.problem.merge"
+      "path": "exercises/06.seo/04.problem.errors"
     },
     {
-      "path": "exercises/06.seo/04.solution.merge"
+      "path": "exercises/06.seo/04.solution.errors"
     },
     {
       "path": "exercises/07.error-handling/01.problem.route-errors"

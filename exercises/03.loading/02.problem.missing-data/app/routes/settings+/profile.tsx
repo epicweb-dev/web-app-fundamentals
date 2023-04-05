@@ -29,7 +29,7 @@ export default function EditUserProfile() {
 	const data = useLoaderData<typeof loader>()
 
 	return (
-		<div className="container m-auto mt-16 mb-36 max-w-3xl">
+		<div className="container m-auto mb-36 mt-16 max-w-3xl">
 			<div className="flex gap-3">
 				{/* 🦺 Huzzah! Listening to TypeScript is good for the soul */}
 				{/* @ts-expect-error 💣 delete this comment now that you've fixed the loader */}

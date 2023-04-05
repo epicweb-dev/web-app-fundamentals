@@ -5,7 +5,11 @@ loaders and actions so you can control the status code and other information
 sent in the response. For example:
 
 ```tsx filename=app/routes/sandwiches.$sandwichId.tsx lines=10,18
-import { json, type DataFunctionArgs } from '@remix-run/node'
+import {
+	json,
+	type DataFunctionArgs,
+	type V2_MetaFunction,
+} from '@remix-run/node'
 import invariant from 'tiny-invariant'
 import { getUser } from '~/utils/auth.server'
 import { getSandwich } from '~/utils/sandwiches.server'
@@ -103,7 +107,11 @@ This is a great way to make nice utilities that make the regular application
 code much easier to write and read:
 
 ```tsx filename=app/routes/sandwiches.$sandwichId.tsx add=4,13 remove=3,8-12
-import { json, type DataFunctionArgs } from '@remix-run/node'
+import {
+	json,
+	type DataFunctionArgs,
+	type V2_MetaFunction,
+} from '@remix-run/node'
 import invariant from 'tiny-invariant'
 import { getUser } from '~/utils/auth.server'
 import { requireUser } from '~/utils/auth.server'

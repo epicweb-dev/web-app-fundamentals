@@ -19,7 +19,7 @@ export default function UserRoute() {
 	const data = useLoaderData<typeof loader>()
 
 	return (
-		<div className="mt-36 mb-48">
+		<div className="mb-48 mt-36">
 			<pre>{JSON.stringify(data, null, 2)}</pre>
 			<Outlet />
 		</div>

@@ -1,12 +1,16 @@
 import * as Separator from '@radix-ui/react-separator'
-import { json, type DataFunctionArgs } from '@remix-run/node'
+import {
+	json,
+	type DataFunctionArgs,
+	type V2_MetaFunction,
+} from '@remix-run/node'
 import { Link, useLoaderData } from '@remix-run/react'
 import invariant from 'tiny-invariant'
 import { GeneralErrorBoundary } from '~/components/error-boundary'
 import { StarRatingDisplay } from '~/components/star-rating-display'
 import { prisma } from '~/utils/db.server'
 import { ButtonLink } from '~/utils/forms'
-import { getShipImgSrc, mergeMeta, useOptionalUser } from '~/utils/misc'
+import { getShipImgSrc, useOptionalUser } from '~/utils/misc'
 import { Reviews, UserProfileBasicInfo } from './__shared'
 
 export async function loader({ params }: DataFunctionArgs) {
@@ -238,18 +242,18 @@ export default function HostUser() {
 	)
 }
 
-export const meta = mergeMeta(({ data, params }) => {
+export const meta: V2_MetaFunction<typeof loader> = ({ data, params }) => {
 	const displayName = data?.user.name ?? params.username
 	return [
-		{ title: `${displayName} | Rocket Rental Host` },
+		{ title: `${displayName} | Rocket Rental Renter` },
 		{
 			name: 'description',
-			content: `Take a look at ${displayName}'s ${
-				data?.user.host.ships.length ?? 'great'
-			} rockets on Rocket Rental.`,
+			content: `${displayName} has flown ${
+				data?.totalBookings ?? 'some'
+			} times in rockets on Rocket Rental.`,
 		},
 	]
-})
+}
 
 export function ErrorBoundary() {
 	return (

@@ -1,4 +1,9 @@
-import { json, redirect, type DataFunctionArgs } from '@remix-run/node'
+import {
+	json,
+	redirect,
+	type DataFunctionArgs,
+	type V2_MetaFunction,
+} from '@remix-run/node'
 import {
 	Form,
 	useActionData,
@@ -18,7 +23,7 @@ import {
 	preprocessFormData,
 	useForm,
 } from '~/utils/forms'
-import { mergeMeta, safeRedirect } from '~/utils/misc'
+import { safeRedirect } from '~/utils/misc'
 import { commitSession, getSession } from '~/utils/session.server'
 import {
 	nameSchema,
@@ -114,9 +119,9 @@ export async function action({ request }: DataFunctionArgs) {
 	})
 }
 
-export const meta = mergeMeta(() => {
+export const meta: V2_MetaFunction = () => {
 	return [{ title: 'Setup Rocket Rental Account' }]
-})
+}
 
 export default function OnboardingPage() {
 	const [searchParams] = useSearchParams()
@@ -133,7 +138,7 @@ export default function OnboardingPage() {
 	const redirectTo = searchParams.get('redirectTo') || '/'
 
 	return (
-		<div className="container mx-auto flex min-h-full flex-col justify-center pt-20 pb-32">
+		<div className="container mx-auto flex min-h-full flex-col justify-center pb-32 pt-20">
 			<div className="mx-auto w-full max-w-lg">
 				<div className="flex flex-col gap-3 text-center">
 					<h1 className="text-h1">Welcome aboard!</h1>

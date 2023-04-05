@@ -34,7 +34,7 @@ export default function UserRoute() {
 	const onIndexPage = lastMatch.id.endsWith('index')
 
 	return (
-		<div className="mt-36 mb-48">
+		<div className="mb-48 mt-36">
 			{onIndexPage ? null : (
 				<div className="container mx-auto flex justify-end">
 					<div className="flex justify-between gap-6">
@@ -49,7 +49,7 @@ export default function UserRoute() {
 							<NavLink
 								to="host"
 								className={({ isActive }) =>
-									clsx('rounded-full py-3 px-12 leading-3', {
+									clsx('rounded-full px-12 py-3 leading-3', {
 										'bg-night-700 text-white': !isActive,
 										'bg-white text-black': isActive,
 									})
@@ -60,7 +60,7 @@ export default function UserRoute() {
 							<NavLink
 								to="renter"
 								className={({ isActive }) =>
-									clsx('rounded-full py-3 px-12 leading-3', {
+									clsx('rounded-full px-12 py-3 leading-3', {
 										'bg-night-700 text-white': !isActive,
 										' bg-white text-black': isActive,
 									})

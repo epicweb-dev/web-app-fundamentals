@@ -1,4 +1,9 @@
-import { json, redirect, type DataFunctionArgs } from '@remix-run/node'
+import {
+	json,
+	redirect,
+	type DataFunctionArgs,
+	type V2_MetaFunction,
+} from '@remix-run/node'
 import {
 	Form,
 	Link,
@@ -186,7 +191,7 @@ export default function EditUserProfile() {
 	const createHostFormId = 'create-host-form'
 	const createRenterFormId = 'create-renter-form'
 	return (
-		<div className="container m-auto mt-16 mb-36 max-w-3xl">
+		<div className="container m-auto mb-36 mt-16 max-w-3xl">
 			<div className="flex gap-3">
 				<Link className="text-night-300" to={`/users/${data.user.username}`}>
 					Profile
@@ -204,7 +209,7 @@ export default function EditUserProfile() {
 						/>
 						<Link
 							to="photo"
-							className="absolute top-3 -right-3 flex h-4 w-4 items-center justify-center rounded-full border-4 border-night-700 bg-night-500 p-5"
+							className="absolute -right-3 top-3 flex h-4 w-4 items-center justify-center rounded-full border-4 border-night-700 bg-night-500 p-5"
 						>
 							📷
 						</Link>
@@ -391,7 +396,7 @@ export default function EditUserProfile() {
 								</div>
 							)}
 						</div>
-						<div className="col-span-6 mt-6 mb-12 h-1 border-b-[1.5px] border-night-500" />
+						<div className="col-span-6 mb-12 mt-6 h-1 border-b-[1.5px] border-night-500" />
 						<fieldset className="col-span-6">
 							<legend className="pb-6 text-lg text-night-200">
 								Change password
@@ -454,6 +459,16 @@ export default function EditUserProfile() {
 			<Outlet />
 		</div>
 	)
+}
+
+export const meta: V2_MetaFunction = () => {
+	return [
+		{ title: 'Edit Profile | Rocket Rental' },
+		{
+			name: 'description',
+			content: 'Edit your personal Rocket Rental profile',
+		},
+	]
 }
 
 export function ErrorBoundary() {

@@ -51,7 +51,7 @@ export default function UsernameIndex() {
 				<>
 					<Link
 						to="/settings/profile"
-						className="rounded-full border border-night-400 py-5 px-10"
+						className="rounded-full border border-night-400 px-10 py-5"
 					>
 						✏️ Create your profile
 					</Link>

@@ -1,10 +1,14 @@
-import { json, type DataFunctionArgs } from '@remix-run/node'
+import {
+	json,
+	type DataFunctionArgs,
+	type V2_MetaFunction,
+} from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
 import invariant from 'tiny-invariant'
 import { GeneralErrorBoundary } from '~/components/error-boundary'
 import { getUserId } from '~/utils/auth.server'
 import { prisma } from '~/utils/db.server'
-import { mergeMeta, useOptionalUser } from '~/utils/misc'
+import { useOptionalUser } from '~/utils/misc'
 import { Reviews, UserProfileBasicInfo } from './__shared'
 
 export async function loader({ request, params }: DataFunctionArgs) {
@@ -123,7 +127,7 @@ export default function RenterUser() {
 	)
 }
 
-export const meta = mergeMeta(({ data, params }) => {
+export const meta: V2_MetaFunction<typeof loader> = ({ data, params }) => {
 	const displayName = data?.user.name ?? params.username
 	return [
 		{ title: `${displayName} | Rocket Rental Renter` },
@@ -134,7 +138,7 @@ export const meta = mergeMeta(({ data, params }) => {
 			} times in rockets on Rocket Rental.`,
 		},
 	]
-})
+}
 
 export function ErrorBoundary() {
 	return (

@@ -1,4 +1,9 @@
-import { json, redirect, type DataFunctionArgs } from '@remix-run/node'
+import {
+	json,
+	redirect,
+	type DataFunctionArgs,
+	type V2_MetaFunction,
+} from '@remix-run/node'
 import { useFetcher, useLoaderData } from '@remix-run/react'
 import { z } from 'zod'
 import { GeneralErrorBoundary } from '~/components/error-boundary'
@@ -12,7 +17,6 @@ import {
 	preprocessFormData,
 	useForm,
 } from '~/utils/forms'
-import { mergeMeta } from '~/utils/misc'
 import { getDomainUrl } from '~/utils/misc.server'
 import { commitSession, getSession } from '~/utils/session.server'
 import { emailSchema } from '~/utils/user-validation'
@@ -105,9 +109,9 @@ export async function action({ request }: DataFunctionArgs) {
 	}
 }
 
-export const meta = mergeMeta(() => {
+export const meta: V2_MetaFunction = () => {
 	return [{ title: 'Sign Up | Rocket Rental' }]
-})
+}
 
 export default function SignupRoute() {
 	const data = useLoaderData<typeof loader>()
@@ -119,7 +123,7 @@ export default function SignupRoute() {
 	})
 
 	return (
-		<div className="container mx-auto flex flex-col justify-center pt-20 pb-32">
+		<div className="container mx-auto flex flex-col justify-center pb-32 pt-20">
 			{signupFetcher.data?.status === 'success' ? (
 				<div className="text-center">
 					<img src="" alt="" />

@@ -1,4 +1,9 @@
-import { json, redirect, type DataFunctionArgs } from '@remix-run/node'
+import {
+	json,
+	redirect,
+	type DataFunctionArgs,
+	type V2_MetaFunction,
+} from '@remix-run/node'
 import { Link, useFetcher, useLoaderData } from '@remix-run/react'
 import { z } from 'zod'
 import { GeneralErrorBoundary } from '~/components/error-boundary'
@@ -12,7 +17,6 @@ import {
 	preprocessFormData,
 	useForm,
 } from '~/utils/forms'
-import { mergeMeta } from '~/utils/misc'
 import { getDomainUrl } from '~/utils/misc.server'
 import { commitSession, getSession } from '~/utils/session.server'
 import { emailSchema, usernameSchema } from '~/utils/user-validation'
@@ -105,9 +109,9 @@ async function sendPasswordResetEmail({
 	})
 }
 
-export const meta = mergeMeta(() => {
+export const meta: V2_MetaFunction = () => {
 	return [{ title: 'Password Recovery for Rocket Rental' }]
-})
+}
 
 export default function SignupRoute() {
 	const data = useLoaderData<typeof loader>()
@@ -120,7 +124,7 @@ export default function SignupRoute() {
 	})
 
 	return (
-		<div className="container mx-auto pt-20 pb-32">
+		<div className="container mx-auto pb-32 pt-20">
 			<div className="flex flex-col justify-center">
 				{forgotPassword.data?.status === 'success' ? (
 					<div className="text-center">

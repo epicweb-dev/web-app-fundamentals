@@ -97,8 +97,29 @@ that as an exercise for the reader (you can
 
 ## In Remix
 
-Remix has a built-in API for routes defining the `meta` tags that should be used
-when the route is active through
+Because you're responsible for everything between the `<html>` and `</html>` in
+your document, adding metadata tags is as simple as adding them to your JSX.
+
+```tsx filename=app/root.tsx
+export default function App() {
+	return (
+		<html>
+			<head>
+				<title>My Page</title>
+				<meta name="description" content="This is my page" />
+				<meta name="viewport" content="width=device-width, initial-scale=1" />
+				<meta charset="utf-8" />
+			</head>
+			<body>{/* ... */}</body>
+		</html>
+	)
+}
+```
+
+However, things can get tricky when we start thinking about nested routes and
+having that title and description be dynamic based on the current route. That's
+why Remix has a built-in API for routes defining the `meta` tags that should be
+used when the route is active through
 [the route `meta` export](https://remix.run/docs/en/main/route/meta). It's
 similar in some ways to the `links` export, but instead, when a route defines a
 `meta` export, the `meta` tags from ancestor routes are ignored and must be
@@ -119,11 +140,11 @@ export const meta: V2_MetaFunction = () => {
 }
 ```
 
-Please recall that in Remix you're responsible for everything on the page
-between `<html>` and `</html>` and that's no different here. You need to apply
-the [`<Meta />`](https://remix.run/docs/en/main/components/meta) component in
-the `<head>` of your document in your `app/root.tsx` to ensure these meta tags
-are rendered.
+Again, in Remix you're responsible for everything on the page between `<html>`
+and `</html>` and that's no different here. You need to apply the
+[`<Meta />`](https://remix.run/docs/en/main/components/meta) component in the
+`<head>` of your document in your `app/root.tsx` to ensure these meta tags are
+rendered. Much like the `<Links />` component.
 
 With that example above, the `<head>` of your document have this:
 

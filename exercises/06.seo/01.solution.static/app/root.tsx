@@ -3,7 +3,6 @@ import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import { cssBundleHref } from '@remix-run/css-bundle'
 import {
 	json,
-	type V2_MetaFunction,
 	type DataFunctionArgs,
 	type LinksFunction,
 } from '@remix-run/node'
@@ -12,7 +11,6 @@ import {
 	Link,
 	Links,
 	LiveReload,
-	Meta,
 	Outlet,
 	Scripts,
 	ScrollRestoration,
@@ -36,15 +34,6 @@ export const links: LinksFunction = () => {
 		cssBundleHref ? { rel: 'stylesheet', href: cssBundleHref } : null,
 		{ rel: 'stylesheet', href: appStylesheetUrl },
 	].filter(typedBoolean)
-}
-
-export const meta: V2_MetaFunction = () => {
-	return [
-		{ title: 'Rocket Rental' },
-		{ charSet: 'utf-8' },
-		{ name: 'viewport', content: 'width=device-width,initial-scale=1' },
-		{ name: 'description', content: 'Find yourself in outer space' },
-	]
 }
 
 export async function loader({ request }: DataFunctionArgs) {
@@ -72,7 +61,10 @@ export default function App() {
 	return (
 		<html lang="en" className="h-full">
 			<head>
-				<Meta />
+				<title>Rocket Rental</title>
+				<meta name="description" content="Find yourself in outer space" />
+				<meta charSet="utf-8" />
+				<meta name="viewport" content="width=device-width,initial-scale=1" />
 				<Links />
 			</head>
 			<body className="flex h-full flex-col justify-between bg-night-700 text-white scrollbar-thin scrollbar-thumb-gray-300">
@@ -167,7 +159,7 @@ function UserDropdown() {
 						<Link
 							prefetch="intent"
 							to={`/users/${user.username}`}
-							className="rounded-t-3xl py-5 px-7 outline-none radix-highlighted:bg-night-500 hover:bg-night-500"
+							className="rounded-t-3xl px-7 py-5 outline-none radix-highlighted:bg-night-500 hover:bg-night-500"
 						>
 							👤 Profile
 						</Link>
@@ -176,7 +168,7 @@ function UserDropdown() {
 						<Link
 							prefetch="intent"
 							to="/favorites"
-							className="py-5 px-7 outline-none radix-highlighted:bg-night-500 hover:bg-night-500"
+							className="px-7 py-5 outline-none radix-highlighted:bg-night-500 hover:bg-night-500"
 						>
 							🔖 Favorites
 						</Link>
@@ -185,7 +177,7 @@ function UserDropdown() {
 						<Link
 							prefetch="intent"
 							to="/bookings"
-							className="py-5 px-7 outline-none radix-highlighted:bg-night-500 hover:bg-night-500"
+							className="px-7 py-5 outline-none radix-highlighted:bg-night-500 hover:bg-night-500"
 						>
 							🚀 Bookings
 						</Link>
@@ -194,7 +186,7 @@ function UserDropdown() {
 						<Form
 							action="/logout"
 							method="post"
-							className="rounded-b-3xl py-5 px-7 outline-none radix-highlighted:bg-night-500"
+							className="rounded-b-3xl px-7 py-5 outline-none radix-highlighted:bg-night-500"
 							onClick={e => submit(e.currentTarget)}
 						>
 							<button type="submit">🚪 Logout</button>
