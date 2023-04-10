@@ -30,22 +30,3 @@ We also have an issue with the settings page. If someone tries going
 to <LinkToApp to="/settings/profile" /> when they're logged in, but their user account
 was deleted, it blows up on them. Instead, it should log them out and redirect them
 to home. I know I know, this is an edge case, but we really need to handle it! Thanks!
-
-<TouchedFiles>
-  <div id="files">
-    <ul>
-      <li data-state="modified">
-        <span>modified</span>
-
-        <InlineFile file="app/routes/settings+/profile.tsx" />
-      </li>
-
-      <li data-state="modified">
-        <span>modified</span>
-
-        <InlineFile file="app/routes/users_+/$username.tsx" />
-      </li>
-    </ul>
-
-  </div>
-</TouchedFiles>

@@ -59,22 +59,3 @@ We can do this in <InlineFile file="app/root.tsx" /> and then we'll use that
 `ENV.MODE` variable in <InlineFile file="app/entry.client.tsx" /> to dynamically
 load some devtools (found in <InlineFile file="app/utils/devtools.tsx" />) when
 we're in development mode (`ENV.MODE === 'development'`).
-
-<TouchedFiles>
-  <div id="files">
-    <ul>
-      <li data-state="modified">
-        <span>modified</span>
-
-        <InlineFile file="app/entry.client.tsx" />
-      </li>
-
-      <li data-state="modified">
-        <span>modified</span>
-
-        <InlineFile file="app/root.tsx" />
-      </li>
-    </ul>
-
-  </div>
-</TouchedFiles>

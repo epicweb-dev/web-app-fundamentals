@@ -9,8 +9,9 @@ those attributes should not appear (so you'll set them to `undefined` in that
 case).
 
 <callout-info class="aside">
-  Note that there is also `aria-errormessage`, however screen reader support is
-  unfortunately very poor for that attribute. We just need to do the best we can.
+	Note that there is also `aria-errormessage`, however screen reader support is
+	unfortunately very poor for that attribute. We just need to do the best we
+	can.
 </callout-info>
 
 And we do this for more than just the `input`, we'll want this for the `<form>`
@@ -20,22 +21,3 @@ I suggest you start with <InlineFile file="app/utils/forms.tsx" line="16" /> and
 make the `id` on the `ErrorList` component not optional, then TypeScript will
 help you know the other places you need to go to add the error ID and handle the
 attributes on the form and input elements.
-
-<TouchedFiles>
-  <div id="files">
-    <ul>
-      <li data-state="modified">
-        <span>modified</span>
-
-        <InlineFile file="app/routes/settings+/profile.tsx" />
-      </li>
-
-      <li data-state="modified">
-        <span>modified</span>
-
-        <InlineFile file="app/utils/forms.tsx" />
-      </li>
-    </ul>
-
-  </div>
-</TouchedFiles>
