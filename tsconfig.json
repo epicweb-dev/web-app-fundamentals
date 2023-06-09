@@ -3,11 +3,6 @@
   "exclude": [
     "node_modules"
   ],
-  "compilerOptions": {
-    "disableReferencedProjectLoad": true,
-    "disableSolutionSearching": true,
-    "disableSourceOfProjectReferenceRedirect": true
-  },
   "references": [
     {
       "path": "exercises/01.styling/01.problem.public-links"
