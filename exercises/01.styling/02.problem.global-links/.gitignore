@@ -21,3 +21,4 @@ prisma/test
 other/image.db
 
 server-build
+*.tsbuildinfo
