@@ -244,14 +244,14 @@ export default function HostUser() {
 // 🐨 destructure params alongside the data in this function
 export const meta: V2_MetaFunction<typeof loader> = ({ data }) => {
 	// 🐨 use params to get the username for the fallback
-	// 🐨 handle the case where data is undefined
+	// @ts-ignore - 🐨 handle the case where data is undefined
 	const displayName = data.user.name ?? data.user.username
 	return [
 		{ title: `${displayName} | Rocket Rental Host` },
 		{
 			name: 'description',
 			content: `Take a look at ${displayName}'s ${
-				// 🐨 handle the case where data is undefined
+				// @ts-ignore - 🐨 handle the case where data is undefined
 				data.user.host.ships.length
 			} rockets on Rocket Rental.`,
 		},

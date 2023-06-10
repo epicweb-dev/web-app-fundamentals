@@ -127,11 +127,13 @@ export default function RenterUser() {
 }
 
 export const meta: V2_MetaFunction<typeof loader> = ({ data }) => {
+	// @ts-ignore - 🐨 we will handle this error in the next exercise
 	const displayName = data.user.name ?? data.user.username
 	return [
 		{ title: `${displayName} | Rocket Rental Renter` },
 		{
 			name: 'description',
+			// @ts-ignore - 🐨 we will handle this error in the next exercise
 			content: `${displayName} has flown ${data.totalBookings} times in rockets on Rocket Rental.`,
 		},
 	]

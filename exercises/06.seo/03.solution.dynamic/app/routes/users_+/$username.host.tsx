@@ -242,11 +242,13 @@ export default function HostUser() {
 }
 
 export const meta: V2_MetaFunction<typeof loader> = ({ data }) => {
+	// @ts-ignore - 🐨 we will handle this error in the next exercise
 	const displayName = data.user.name ?? data.user.username
 	return [
 		{ title: `${displayName} | Rocket Rental Host` },
 		{
 			name: 'description',
+			// @ts-ignore - 🐨 we will handle this error in the next exercise
 			content: `Take a look at ${displayName}'s ${data.user.host.ships.length} rockets on Rocket Rental.`,
 		},
 	]

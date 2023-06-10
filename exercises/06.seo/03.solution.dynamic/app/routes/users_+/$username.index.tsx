@@ -77,6 +77,7 @@ export default function UsernameIndex() {
 }
 
 export const meta: V2_MetaFunction<typeof loader> = ({ data }) => {
+	// @ts-ignore - 🐨 we will handle this error in the next exercise
 	const displayName = data.user.name ?? data.user.username
 	return [
 		{ title: `${displayName} | Rocket Rental` },

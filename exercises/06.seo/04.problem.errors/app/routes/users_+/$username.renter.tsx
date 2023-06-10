@@ -129,14 +129,14 @@ export default function RenterUser() {
 // 🐨 destructure params alongside the data in this function
 export const meta: V2_MetaFunction<typeof loader> = ({ data }) => {
 	// 🐨 use params to get the username for the fallback
-	// 🐨 handle the case where data is undefined
+	// @ts-ignore - 🐨 handle the case where data is undefined
 	const displayName = data.user.name ?? data.user.username
 	return [
 		{ title: `${displayName} | Rocket Rental Renter` },
 		{
 			name: 'description',
 			content: `${displayName} has flown ${
-				// 🐨 handle the case where data is undefined
+				// @ts-ignore - 🐨 handle the case where data is undefined
 				data.totalBookings
 			} times in rockets on Rocket Rental.`,
 		},
