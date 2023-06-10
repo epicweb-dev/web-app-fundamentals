@@ -1,8 +1,13 @@
 import { rest } from 'msw'
 import { setupServer } from 'msw/node'
-import { createFixture } from './utils'
+import { createFixture } from './utils.ts'
 
-const miscHandlers = [
+const remix = process.env.REMIX_DEV_HTTP_ORIGIN as string
+
+export const server = setupServer(
+	rest.post(`${remix}/ping`, req => {
+		return req.passthrough()
+	}),
 	rest.post(
 		'https://api.mailgun.net/v3/:domain/messages',
 		async (req, res, ctx) => {
@@ -18,9 +23,7 @@ const miscHandlers = [
 			return res(ctx.json({ id, message: 'Queued. Thank you.' }))
 		},
 	),
-]
-
-const server = setupServer(...miscHandlers)
+)
 
 server.listen({ onUnhandledRequest: 'warn' })
 console.info('🔶 Mock server installed')

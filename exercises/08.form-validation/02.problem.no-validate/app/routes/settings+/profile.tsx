@@ -16,17 +16,17 @@ import {
 } from '@remix-run/react'
 import { useEffect, useRef } from 'react'
 import invariant from 'tiny-invariant'
-import { GeneralErrorBoundary } from '~/components/error-boundary'
-import * as createHost from '~/routes/resources+/create-host'
-import * as createRenter from '~/routes/resources+/create-renter'
+import { GeneralErrorBoundary } from '~/components/error-boundary.tsx'
+import * as createHost from '~/routes/resources+/create-host.tsx'
+import * as createRenter from '~/routes/resources+/create-renter.tsx'
 import {
 	authenticator,
 	getPasswordHash,
 	requireUserId,
-} from '~/utils/auth.server'
-import { prisma } from '~/utils/db.server'
-import { Button, ErrorList, Field, TextareaField } from '~/utils/forms'
-import { getUserImgSrc } from '~/utils/misc'
+} from '~/utils/auth.server.ts'
+import { prisma } from '~/utils/db.server.ts'
+import { Button, ErrorList, Field, TextareaField } from '~/utils/forms.tsx'
+import { getUserImgSrc } from '~/utils/misc.ts'
 
 export async function loader({ request }: DataFunctionArgs) {
 	const userId = await requireUserId(request)

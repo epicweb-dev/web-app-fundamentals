@@ -1,9 +1,9 @@
 import { json, type DataFunctionArgs } from '@remix-run/node'
 import { Form, Link, useLoaderData } from '@remix-run/react'
-import { authenticator, requireUserId } from '~/utils/auth.server'
-import { prisma } from '~/utils/db.server'
-import { Button } from '~/utils/forms'
-import { getUserImgSrc } from '~/utils/misc'
+import { authenticator, requireUserId } from '~/utils/auth.server.ts'
+import { prisma } from '~/utils/db.server.ts'
+import { Button } from '~/utils/forms.tsx'
+import { getUserImgSrc } from '~/utils/misc.ts'
 
 export async function loader({ request }: DataFunctionArgs) {
 	const userId = await requireUserId(request)

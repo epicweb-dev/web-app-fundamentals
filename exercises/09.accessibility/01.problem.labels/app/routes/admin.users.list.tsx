@@ -1,7 +1,7 @@
 import { json } from '@remix-run/node'
 import { Link, useLoaderData } from '@remix-run/react'
-import { prisma } from '~/utils/db.server'
-import { getUserImgSrc } from '~/utils/misc'
+import { prisma } from '~/utils/db.server.ts'
+import { getUserImgSrc } from '~/utils/misc.ts'
 
 export async function loader() {
 	const users = await prisma.user.findMany({
@@ -39,7 +39,7 @@ export default function UserList() {
 	const data = useLoaderData<typeof loader>()
 
 	return (
-		<div className="container mx-auto pt-20 pb-32">
+		<div className="container mx-auto pb-32 pt-20">
 			<h1 className="text-h1">User List</h1>
 			<p className="text-night-200">A list of users for you...</p>
 			<p className="text-body-sm text-night-300">

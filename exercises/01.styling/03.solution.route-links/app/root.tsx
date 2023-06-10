@@ -3,8 +3,8 @@ import { type LinksFunction } from '@remix-run/node'
 import { Link, Links, LiveReload, Outlet } from '@remix-run/react'
 import { useId, useState } from 'react'
 import appStylesheetUrl from './styles/app.css'
-import { ButtonLink } from './utils/forms'
-import { generateStarsSvg } from './utils/starfield.server'
+import { ButtonLink } from './utils/forms.tsx'
+import { generateStarsSvg } from './utils/starfield.server.ts'
 
 export const links: LinksFunction = () => {
 	return [
@@ -19,7 +19,7 @@ export default function App() {
 			<head>
 				<Links />
 			</head>
-			<body className="flex h-full flex-col justify-between bg-night-700 text-white scrollbar-thin scrollbar-thumb-gray-300">
+			<body className="scrollbar-thin scrollbar-thumb-gray-300 flex h-full flex-col justify-between bg-night-700 text-white">
 				<header className="container mx-auto py-6">
 					<nav className="flex justify-between">
 						<Link to="/">

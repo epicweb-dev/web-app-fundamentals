@@ -1,11 +1,22 @@
 import fsExtra from 'fs-extra'
 import path from 'path'
-import glob from 'glob'
+import { fileURLToPath } from 'url'
+import { globSync } from 'glob'
+import esbuild from 'esbuild'
 
+const pkg = fsExtra.readJsonSync(path.join(process.cwd(), 'package.json'))
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const here = (...s: Array<string>) => path.join(__dirname, ...s)
+const globsafe = (s: string) => s.replace(/\\/g, '/')
 
-const allFiles = glob.sync(here('../server/**/*.*').replace(/\\/g, '/'), {
-	ignore: ['**/tsconfig.json', '**/eslint*', '**/__tests__/**'],
+const allFiles = globSync(globsafe(here('../server/**/*.*')), {
+	ignore: [
+		'server/dev-server.js', // for development only
+		'**/tsconfig.json',
+		'**/eslint*',
+		'**/__tests__/**',
+	],
 })
 
 const entries = []
@@ -14,7 +25,7 @@ for (const file of allFiles) {
 		entries.push(file)
 	} else {
 		const dest = file.replace(here('../server'), here('../server-build'))
-		fsExtra.ensureDir(path.parse(dest).dir)
+		fsExtra.ensureDirSync(path.parse(dest).dir)
 		fsExtra.copySync(file, dest)
 		console.log(`copied: ${file.replace(`${here('../server')}/`, '')}`)
 	}
@@ -23,15 +34,13 @@ for (const file of allFiles) {
 console.log()
 console.log('building...')
 
-require('esbuild')
+esbuild
 	.build({
-		entryPoints: glob.sync(
-			here('../server/**/*.+(ts|js|tsx|jsx)').replace(/\\/g, '/'),
-		),
+		entryPoints: entries,
 		outdir: here('../server-build'),
-		target: [`node18`],
+		target: [`node${pkg.engines.node}`],
 		platform: 'node',
-		format: 'cjs',
+		format: 'esm',
 		logLevel: 'info',
 	})
 	.catch((error: unknown) => {

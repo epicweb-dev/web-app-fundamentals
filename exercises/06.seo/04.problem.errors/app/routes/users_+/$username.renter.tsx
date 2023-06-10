@@ -5,10 +5,10 @@ import {
 } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
 import invariant from 'tiny-invariant'
-import { getUserId } from '~/utils/auth.server'
-import { prisma } from '~/utils/db.server'
-import { useOptionalUser } from '~/utils/misc'
-import { Reviews, UserProfileBasicInfo } from './__shared'
+import { getUserId } from '~/utils/auth.server.ts'
+import { prisma } from '~/utils/db.server.ts'
+import { useOptionalUser } from '~/utils/misc.ts'
+import { Reviews, UserProfileBasicInfo } from './__shared.tsx'
 
 export async function loader({ request, params }: DataFunctionArgs) {
 	const loggedInUserId = await getUserId(request)
@@ -129,14 +129,14 @@ export default function RenterUser() {
 // 🐨 destructure params alongside the data in this function
 export const meta: V2_MetaFunction<typeof loader> = ({ data }) => {
 	// 🐨 use params to get the username for the fallback
-	// 🐨 handle the case where data is undefined
+	// @ts-ignore - 🐨 handle the case where data is undefined
 	const displayName = data.user.name ?? data.user.username
 	return [
 		{ title: `${displayName} | Rocket Rental Renter` },
 		{
 			name: 'description',
 			content: `${displayName} has flown ${
-				// 🐨 handle the case where data is undefined
+				// @ts-ignore - 🐨 handle the case where data is undefined
 				data.totalBookings
 			} times in rockets on Rocket Rental.`,
 		},

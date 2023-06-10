@@ -27,7 +27,7 @@ export default function UserRoute() {
 	const data = { todo: 'you need to do this part' }
 
 	return (
-		<div className="mt-36 mb-48">
+		<div className="mb-48 mt-36">
 			<pre className="mb-40 ml-20">{JSON.stringify(data, null, 2)}</pre>
 			<Outlet />
 		</div>

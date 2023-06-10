@@ -7,11 +7,11 @@ import {
 	useMatches,
 	useRouteError,
 } from '@remix-run/react'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 import invariant from 'tiny-invariant'
-import { getUserId } from '~/utils/auth.server'
-import { prisma } from '~/utils/db.server'
-import { Button } from '~/utils/forms'
+import { getUserId } from '~/utils/auth.server.ts'
+import { prisma } from '~/utils/db.server.ts'
+import { Button } from '~/utils/forms.tsx'
 
 export async function loader({ request, params }: DataFunctionArgs) {
 	invariant(params.username, 'Missing username')

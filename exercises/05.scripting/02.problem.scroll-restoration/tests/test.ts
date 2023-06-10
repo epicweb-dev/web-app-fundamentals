@@ -3,10 +3,10 @@ import { test as base, type Page } from '@playwright/test'
 import { PrismaClient } from '@prisma/client'
 import bcrypt from 'bcryptjs'
 import { parse } from 'cookie'
-import { authenticator } from '~/utils/auth.server'
-import { commitSession, getSession } from '~/utils/session.server'
-import { readFixture } from '../mocks/utils'
-import { createContactInfo, createUser } from '../prisma/seed-utils'
+import { authenticator } from '~/utils/auth.server.ts'
+import { commitSession, getSession } from '~/utils/session.server.ts'
+import { readFixture } from '../mocks/utils.ts'
+import { createContactInfo, createUser } from '../prisma/seed-utils.ts'
 
 export const dataCleanup = {
 	users: new Set<string>(),
@@ -46,11 +46,11 @@ type LoginForm = {
 export function makeLoginForm(
 	overrides: Partial<LoginForm> | undefined = {},
 ): LoginForm {
-	const firstName = overrides.name?.split(' ')?.[0] || faker.name.firstName()
-	const lastName = overrides.name?.split(' ')?.[1] || faker.name.lastName()
+	const firstName = overrides.name?.split(' ')?.[0] || faker.person.firstName()
+	const lastName = overrides.name?.split(' ')?.[1] || faker.person.lastName()
 	const username =
 		overrides.username ||
-		faker.internet.userName(firstName, lastName).slice(0, 15)
+		faker.internet.userName({ firstName, lastName }).slice(0, 15)
 	return {
 		name: overrides.name || `${firstName} ${lastName}`,
 		username,

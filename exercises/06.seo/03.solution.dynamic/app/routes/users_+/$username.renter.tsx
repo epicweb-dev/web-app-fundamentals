@@ -5,10 +5,10 @@ import {
 } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
 import invariant from 'tiny-invariant'
-import { getUserId } from '~/utils/auth.server'
-import { prisma } from '~/utils/db.server'
-import { useOptionalUser } from '~/utils/misc'
-import { Reviews, UserProfileBasicInfo } from './__shared'
+import { getUserId } from '~/utils/auth.server.ts'
+import { prisma } from '~/utils/db.server.ts'
+import { useOptionalUser } from '~/utils/misc.ts'
+import { Reviews, UserProfileBasicInfo } from './__shared.tsx'
 
 export async function loader({ request, params }: DataFunctionArgs) {
 	const loggedInUserId = await getUserId(request)
@@ -127,11 +127,13 @@ export default function RenterUser() {
 }
 
 export const meta: V2_MetaFunction<typeof loader> = ({ data }) => {
+	// @ts-ignore - 🐨 we will handle this error in the next exercise
 	const displayName = data.user.name ?? data.user.username
 	return [
 		{ title: `${displayName} | Rocket Rental Renter` },
 		{
 			name: 'description',
+			// @ts-ignore - 🐨 we will handle this error in the next exercise
 			content: `${displayName} has flown ${data.totalBookings} times in rockets on Rocket Rental.`,
 		},
 	]

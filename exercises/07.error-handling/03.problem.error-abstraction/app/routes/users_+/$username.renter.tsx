@@ -5,10 +5,10 @@ import {
 } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
 import invariant from 'tiny-invariant'
-import { getUserId } from '~/utils/auth.server'
-import { prisma } from '~/utils/db.server'
-import { useOptionalUser } from '~/utils/misc'
-import { Reviews, UserProfileBasicInfo } from './__shared'
+import { getUserId } from '~/utils/auth.server.ts'
+import { prisma } from '~/utils/db.server.ts'
+import { useOptionalUser } from '~/utils/misc.ts'
+import { Reviews, UserProfileBasicInfo } from './__shared.tsx'
 
 export async function loader({ request, params }: DataFunctionArgs) {
 	const loggedInUserId = await getUserId(request)
