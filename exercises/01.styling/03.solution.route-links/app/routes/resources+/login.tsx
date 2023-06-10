@@ -6,8 +6,8 @@ import {
 	Field,
 	getFieldsFromSchema,
 	useForm,
-} from '~/utils/forms'
-import { passwordSchema, usernameSchema } from '~/utils/user-validation'
+} from '~/utils/forms.tsx'
+import { passwordSchema, usernameSchema } from '~/utils/user-validation.ts'
 
 export const LoginFormSchema = z.object({
 	username: usernameSchema,

@@ -1,9 +1,9 @@
 import * as Separator from '@radix-ui/react-separator'
 import { Link } from '@remix-run/react'
 import * as React from 'react'
-import { StarRatingDisplay } from '~/components/star-rating-display'
-import { ButtonLink } from '~/utils/forms'
-import { getUserImgSrc } from '~/utils/misc'
+import { StarRatingDisplay } from '~/components/star-rating-display.tsx'
+import { ButtonLink } from '~/utils/forms.tsx'
+import { getUserImgSrc } from '~/utils/misc.ts'
 
 export function UserProfileBasicInfo({
 	user,

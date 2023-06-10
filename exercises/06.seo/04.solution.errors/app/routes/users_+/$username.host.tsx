@@ -6,11 +6,11 @@ import {
 } from '@remix-run/node'
 import { Link, useLoaderData } from '@remix-run/react'
 import invariant from 'tiny-invariant'
-import { StarRatingDisplay } from '~/components/star-rating-display'
-import { prisma } from '~/utils/db.server'
-import { ButtonLink } from '~/utils/forms'
-import { getShipImgSrc, useOptionalUser } from '~/utils/misc'
-import { Reviews, UserProfileBasicInfo } from './__shared'
+import { StarRatingDisplay } from '~/components/star-rating-display.tsx'
+import { prisma } from '~/utils/db.server.ts'
+import { ButtonLink } from '~/utils/forms.tsx'
+import { getShipImgSrc, useOptionalUser } from '~/utils/misc.ts'
+import { Reviews, UserProfileBasicInfo } from './__shared.tsx'
 
 export async function loader({ params }: DataFunctionArgs) {
 	invariant(params.username, 'Missing username')

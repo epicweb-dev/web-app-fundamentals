@@ -28,9 +28,9 @@ you to specify a `method` attribute to switch from the default `GET` request to
 a `POST` request: `<form method="post">`.
 
 <callout-warning class="aside">
-  Even though `GET` and `POST` are not the only methods available in HTTP, they
-  are the only two methods available on HTML forms. If you try anything other
-  than `post`, the browser will just do a `GET` instead.
+	Even though `GET` and `POST` are not the only methods available in HTTP, they
+	are the only two methods available on HTML forms. If you try anything other
+	than `post`, the browser will just do a `GET` instead.
 </callout-warning>
 
 When the method is `POST` the form body is submitted as a "payload" instead of a
@@ -153,10 +153,10 @@ Again, once your form has been submitted, Remix will revalidate all your data so
 you don't have to worry about state management in the client.
 
 <callout-info class="aside">
-  It's important to know that on the web and in Remix, there can only be one
-  "navigational" form submission at a time. You definitely can submit multiple
-  forms back-to-back, but the last one will always "win" in the event of a
-  redirect.
+	It's important to know that on the web and in Remix, there can only be one
+	"navigational" form submission at a time. You definitely can submit multiple
+	forms back-to-back, but the last one will always "win" in the event of a
+	redirect.
 </callout-info>
 
 In Remix there's also a mechanism for programmatically submitting data without

@@ -5,14 +5,15 @@
     "title": "Web App Fundamentals 🔭",
     "root": true
   },
+  "type": "module",
   "scripts": {
     "build": "npm run build --if-present --workspaces",
     "start": "kcdshop start",
     "dev": "kcdshop start",
     "pretest": "npm run build",
-    "test": "node ./scripts/test.mjs",
-    "setup": "node ./setup.mjs",
-    "setup:custom": "node ./scripts/setup-custom.mjs",
+    "test": "node ./scripts/test.js",
+    "setup": "node ./setup.js",
+    "setup:custom": "node ./scripts/setup-custom.js",
     "prisma:generate": "prisma generate --schema exercises/09.accessibility/04.solution.use-focus-invalid/prisma/schema.prisma",
     "lint": "npm run lint --if-present --workspaces",
     "format": "prettier --write .",
@@ -23,9 +24,9 @@
   "author": "Kent C. Dodds <me@kentcdodds.com> (https://kentcdodds.com/)",
   "license": "GPL-3.0-only",
   "dependencies": {
-    "@kentcdodds/workshop-app": "^1.27.1",
-    "@prisma/client": "^4.12.0",
-    "prisma": "^4.12.0"
+    "@kentcdodds/workshop-app": "^1.39.1",
+    "@prisma/client": "^4.15.0",
+    "prisma": "^4.15.0"
   },
   "eslintIgnore": [
     "/node_modules",
@@ -41,6 +42,7 @@
     "npm": ">=8.16.0"
   },
   "devDependencies": {
+    "cookie": "^0.5.0",
     "cross-env": "^7.0.3",
     "execa": "^7.1.1",
     "fs-extra": "^11.1.1"

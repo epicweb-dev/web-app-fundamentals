@@ -7,10 +7,10 @@ import {
 	useNavigation,
 } from '@remix-run/react'
 import invariant from 'tiny-invariant'
-import { authenticator, requireUserId } from '~/utils/auth.server'
-import { prisma } from '~/utils/db.server'
-import { Button, Field } from '~/utils/forms'
-import { getUserImgSrc } from '~/utils/misc'
+import { authenticator, requireUserId } from '~/utils/auth.server.ts'
+import { prisma } from '~/utils/db.server.ts'
+import { Button, Field } from '~/utils/forms.tsx'
+import { getUserImgSrc } from '~/utils/misc.ts'
 
 export async function loader({ request }: DataFunctionArgs) {
 	const userId = await requireUserId(request)
@@ -57,7 +57,7 @@ export default function EditUserProfile() {
 		navigation.formMethod === 'post'
 
 	return (
-		<div className="container m-auto mt-16 mb-36 max-w-3xl">
+		<div className="container m-auto mb-36 mt-16 max-w-3xl">
 			<div className="flex gap-3">
 				<Link className="text-night-300" to={`/users/${data.user.username}`}>
 					Profile

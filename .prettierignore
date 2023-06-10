@@ -4,5 +4,9 @@ node_modules
 **/public/build/**
 .env
 
-package.json
-tsconfig.json
+**/prisma/migrations
+
+**/package.json
+**/tsconfig.json
+
+**/package-lock.json

@@ -20,12 +20,12 @@ import {
 import { useId, useState } from 'react'
 import appStylesheetUrl from './styles/app.css'
 import tailwindStylesheetUrl from './styles/tailwind.css'
-import { authenticator } from './utils/auth.server'
-import { prisma } from './utils/db.server'
-import { getEnv } from './utils/env.server'
-import { ButtonLink } from './utils/forms'
-import { getUserImgSrc, typedBoolean, useUser } from './utils/misc'
-import { generateStarsSvg } from './utils/starfield.server'
+import { authenticator } from './utils/auth.server.ts'
+import { prisma } from './utils/db.server.ts'
+import { getEnv } from './utils/env.server.ts'
+import { ButtonLink } from './utils/forms.tsx'
+import { getUserImgSrc, typedBoolean, useUser } from './utils/misc.ts'
+import { generateStarsSvg } from './utils/starfield.server.ts'
 
 export const links: LinksFunction = () => {
 	return [
@@ -71,7 +71,7 @@ export default function App() {
 				<meta name="viewport" content="width=device-width,initial-scale=1" />
 				<Links />
 			</head>
-			<body className="flex h-full flex-col justify-between bg-night-700 text-white scrollbar-thin scrollbar-thumb-gray-300">
+			<body className="scrollbar-thin scrollbar-thumb-gray-300 flex h-full flex-col justify-between bg-night-700 text-white">
 				<header className="container mx-auto py-6">
 					<nav className="flex justify-between">
 						<Link to="/">
@@ -141,7 +141,7 @@ function UserDropdown() {
 					to={`/users/${user.username}`}
 					// this is for progressive enhancement
 					onClick={e => e.preventDefault()}
-					className="flex items-center gap-2 rounded-full bg-night-500 py-2 pl-2 pr-4 outline-none focus:bg-night-400 radix-state-open:bg-night-400 hover:bg-night-400"
+					className="flex items-center gap-2 rounded-full bg-night-500 py-2 pl-2 pr-4 outline-none hover:bg-night-400 focus:bg-night-400 radix-state-open:bg-night-400"
 				>
 					<img
 						className="h-8 w-8 rounded-full object-cover"
@@ -163,7 +163,7 @@ function UserDropdown() {
 						<Link
 							prefetch="intent"
 							to={`/users/${user.username}`}
-							className="rounded-t-3xl px-7 py-5 outline-none radix-highlighted:bg-night-500 hover:bg-night-500"
+							className="rounded-t-3xl px-7 py-5 outline-none hover:bg-night-500 radix-highlighted:bg-night-500"
 						>
 							👤 Profile
 						</Link>
@@ -172,7 +172,7 @@ function UserDropdown() {
 						<Link
 							prefetch="intent"
 							to="/favorites"
-							className="px-7 py-5 outline-none radix-highlighted:bg-night-500 hover:bg-night-500"
+							className="px-7 py-5 outline-none hover:bg-night-500 radix-highlighted:bg-night-500"
 						>
 							🔖 Favorites
 						</Link>
@@ -181,7 +181,7 @@ function UserDropdown() {
 						<Link
 							prefetch="intent"
 							to="/bookings"
-							className="px-7 py-5 outline-none radix-highlighted:bg-night-500 hover:bg-night-500"
+							className="px-7 py-5 outline-none hover:bg-night-500 radix-highlighted:bg-night-500"
 						>
 							🚀 Bookings
 						</Link>

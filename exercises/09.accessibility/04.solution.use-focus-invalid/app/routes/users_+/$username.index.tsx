@@ -6,11 +6,11 @@ import {
 } from '@remix-run/node'
 import { Form, Link, useLoaderData } from '@remix-run/react'
 import invariant from 'tiny-invariant'
-import { GeneralErrorBoundary } from '~/components/error-boundary'
-import { Spacer } from '~/components/spacer'
-import { prisma } from '~/utils/db.server'
-import { Button } from '~/utils/forms'
-import { getUserImgSrc, useOptionalUser } from '~/utils/misc'
+import { GeneralErrorBoundary } from '~/components/error-boundary.tsx'
+import { Spacer } from '~/components/spacer.tsx'
+import { prisma } from '~/utils/db.server.ts'
+import { Button } from '~/utils/forms.tsx'
+import { getUserImgSrc, useOptionalUser } from '~/utils/misc.ts'
 
 export async function loader({ params }: DataFunctionArgs) {
 	invariant(params.username, 'Missing username')

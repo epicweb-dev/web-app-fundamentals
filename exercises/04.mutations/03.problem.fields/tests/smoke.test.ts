@@ -1,4 +1,4 @@
-import { test, expect } from './test'
+import { test, expect } from './test.ts'
 
 test('page loads', async ({ page }) => {
 	await page.goto('/')

@@ -4,7 +4,7 @@ export default function UserRoute() {
 	const params = useParams()
 
 	return (
-		<div className="mt-36 mb-48">
+		<div className="mb-48 mt-36">
 			<h1 className="text-h1">{params.username}</h1>
 			<ol className="list-inside list-disc">
 				<li>

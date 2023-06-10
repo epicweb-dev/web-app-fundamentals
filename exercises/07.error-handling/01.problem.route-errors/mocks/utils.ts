@@ -1,6 +1,7 @@
 import dns from 'dns'
 import fs from 'fs'
 import path from 'path'
+import { fileURLToPath } from 'url'
 
 let connected: boolean | null = null
 
@@ -15,6 +16,7 @@ export async function isConnectedToTheInternet() {
 	return connected
 }
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const fixturesDirPath = path.join(__dirname, `./fixtures`)
 
 export async function readFixture(name: string) {
