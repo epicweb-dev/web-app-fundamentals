@@ -1,3 +1,5 @@
+# This workshop has been updated: [full-stack-foundations](https://github.com/epicweb-dev/full-stack-foundations)
+
 <div>
   <h1 align="center"><a href="https://kentcdodds.com/workshops/web-app-fundamentals">🔭 Web App Fundamentals</a></h1>
   <strong>
